@@ -1,8 +1,10 @@
+"use client"
 import React from "react";
 import { Typography } from "../Typography";
 import clsx from "clsx";
+import { mergeClass } from "../../helpers/tailwindMergeClass";
 
-interface ButtonProps {
+interface IButtonProps {
   className?: string;
   variant: "filled" | "outlined";
   size: "md" | "lg";
@@ -14,24 +16,27 @@ interface ButtonProps {
   isIconOnly?: boolean;
   onClick?: () => void;
   disabled?: boolean;
+  borderRadius: "rounded" | "corner";
 }
 
-export const Button = ({
+export const Button: React.FC<IButtonProps> = ({
   className = "",
   variant = "filled",
   size = "md",
   icon = "",
   text = "",
   color = "primary",
+  borderRadius = "corner",
   iconPosition = "",
   type = "button",
   isIconOnly = false,
   onClick,
   disabled = false,
-}: ButtonProps) => {
+}
+) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    console.log("Button clicked");
+    alert("Button clicked");
     onClick?.();
   };
 
@@ -40,8 +45,17 @@ export const Button = ({
   }: {
     icon: string | React.ReactNode | React.ComponentType;
   }) => {
+    const iconSizeClass = {
+      md: "!text-[20px]",
+      lg: "!text-[24px]",
+    };
+
     if (typeof icon === "string") {
-      return <span className="material-symbols-rounded">{icon}</span>;
+      return <span
+        className={mergeClass(` ${iconSizeClass[size]} material-symbols-rounded`)}
+      >
+        {icon}
+      </span>
     }
 
     if (typeof icon === "function") {
@@ -70,7 +84,7 @@ export const Button = ({
         <>
           {renderIcon("left")}
           {text && (
-            <Typography variant="h6" className="ws-d-p-b-text">
+            <Typography variant={size === "md" ? "body" : "h6"} className="font-bold text-inherit">
               {text}
             </Typography>
           )}
@@ -80,31 +94,73 @@ export const Button = ({
     </>
   );
 
-  const baseClass = "";
+
+  const baseClass =
+    "relative inline-flex items-center justify-center gap-2.5 cursor-pointer transition disabled:cursor-not-allowed disabled:pointer-events-none";
+
   const sizesClass = {
-    md: "",
-    lg: "",
+    md: "px-[30px] py-3",
+    lg: "px-[40px] py-3",
   };
   const variantClass = {
-    filled: "",
-    outlined: "",
+    filled: {
+      primary:
+        "text-white bg-primary disabled:opacity-50 disabled:saturate-50",
+
+      dark:
+        "text-white bg-black disabled:opacity-50 disabled:saturate-50",
+
+      white:
+        "text-black bg-[var(--color-dark-hover) disabled:opacity-50 disabled:saturate-50",
+    },
+
+    outlined: {
+      primary:
+        "text-primary border border-primary hover:bg-primary hover:text-white disabled:opacity-50 disabled:hover:bg-transparent",
+
+      dark:
+        "text-black border border-black hover:bg-black hover:text-white disabled:opacity-50 disabled:hover:bg-transparent",
+      white: "text-[var(--color-dark-hover)] border border-[var(--color-white)] bg-transparent hover:bg-[var(--color-dark-hover)] hover:text-black disabled:opacity-50 disabled:hover:bg-transparent"
+
+    },
+
+    transparent: {
+      primary:
+        "text-primary disabled:opacity-50",
+
+      dark:
+        "text-black disabled:opacity-50",
+
+      white:
+        "text-white disabled:opacity-50",
+    },
   };
-  const colorClass = {
-    primary: "",
-    dark: "",
+
+
+
+  const borderRadiusClass = {
+    corner: "rounded-[8px]",
+    rounded: "rounded-full",
+  };
+  const iconOnlySizeClass = {
+    md: "p-[8px]",
+    lg: "p-[10px]",
   };
 
   return (
     <>
       <button
         type={type}
-        className={clsx(
-          variantClass[variant],
-          colorClass[color],
-          sizesClass[size],
+        className={mergeClass(clsx(
+          baseClass,
+          isIconOnly ? iconOnlySizeClass[size] : sizesClass[size],
+          borderRadiusClass[borderRadius],
+          variantClass[variant][color],
           className
-        )}
-        // onClick={handleClick}
+        ))}
+        onClick={(e) => {
+          handleClick(e)
+        }}
         disabled={disabled}
       >
         {content}

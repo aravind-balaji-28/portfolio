@@ -3,8 +3,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens */
+@theme {
+  --bg-primary: linear-gradient(
+    94deg,
+    rgba(253, 111, 0, 1) 0%,
+    rgba(228, 100, 0, 1) 100%
+  );
+  --color-black: #575757;
+  --color-white: #fefefe;
+  --color-primary: #fd6f00;
+  --color-dark-hover: #959595;
+  --color-dark-hover-bg: #ffffffba;
+}
+
+/* Utilities */
 @layer utilities {
-  .font-lato {
-    font-family: var(--font-lato);
+  .font-base {
+    font-family: var(--font-base);
+  }
+  .bg-primary {
+    background-image: var(--bg-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  #storybook-root .sb-top-center {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 24px;
   }
 }

@@ -1,14 +1,17 @@
 "use client";
 
-import { clsx } from "clsx";
 import React from "react";
+import clsx from "clsx";
+import { typographyCva } from "./typography.cva";
+import { mergeClass } from "../../helpers/tailwindMergeClass";
 
 type Variant = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body";
 
-interface ITypographyProps {
-  variant: Variant;
-  children: React.ReactNode;
+interface TypographyProps {
+  variant?: Variant;
+  as?: keyof React.JSX.IntrinsicElements;
   className?: string;
+  children: React.ReactNode;
 }
 
 const tagMap: Record<Variant, keyof React.JSX.IntrinsicElements> = {
@@ -21,26 +24,22 @@ const tagMap: Record<Variant, keyof React.JSX.IntrinsicElements> = {
   body: "p",
 };
 
-const typographyClasses: Record<Variant, string> = {
-  h1: "font-lato text-[4.375rem] font-bold leading-[1.12] text-black",
-  h2: "font-lato text-4xl font-bold leading-[1.12] text-black",
-  h3: "font-lato text-[1.875rem] font-semibold leading-[1.12] text-black",
-  h4: "font-lato text-[1.75rem] font-semibold leading-[1.12] text-black",
-  h5: "font-lato text-2xl font-semibold leading-[1.12] text-black",
-  h6: "font-lato text-xl font-medium leading-[1.12] text-black",
-  body: "font-lato text-base font-normal leading-[1.12] text-black",
-};
-
-export const Typography: React.FC<ITypographyProps> = ({
-  variant,
-  children,
+export function Typography({
+  variant = "body",
+  as,
   className,
-}) => {
-  const Tag = tagMap[variant];
+  children,
+}: TypographyProps) {
+  const Tag = as ?? tagMap[variant];
 
   return (
-    <Tag className={clsx(typographyClasses[variant], className)}>
+    <Tag
+      className={mergeClass(
+        typographyCva({ variant }),
+        className
+      )}
+    >
       {children}
     </Tag>
   );
-};
+}  

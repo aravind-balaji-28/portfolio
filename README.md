@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+## Story Book config cmd
+npx storybook@latest init
+npx storybook@latest upgrade
+
+## ONLY WAY to make baseFont.variable work in Storybook
+## You MUST use Storybook for Next.js (not React mode).
+npx storybook@latest init --type nextjs
+
+
+## Utility function to efficiently merge Tailwind CSS classes in JS without style conflicts. (override classes)
+pnpm i tailwind-merge

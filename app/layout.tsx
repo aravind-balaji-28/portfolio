@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { lato } from "./lato";
+import { baseFont } from "./fonts/baseFont";
+import "../app/icons.css";           
+import "../app/globals.css";       
  
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={lato.variable}>
+    <html lang="en" className={baseFont.variable}>
       <body >{children}</body>
     </html>
   );
