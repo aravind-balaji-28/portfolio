@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Circular Progress Bar</title>
+  <style>
+    :root {
+      --progress: 75; /* change value (0–100) */
+      --size: 160px;
+      --stroke: 14px;
+      --primary: #4f46e5;
+      --bg: #e5e7eb;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a;
+      font-family: system-ui, sans-serif;
+    }
+
+    .progress-bar--container {
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          var(--primary) calc(var(--progress) * 1%),
+          var(--bg) 0
+        );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress-bar--container::before {
+      content: "";
+      width: calc(100% - var(--stroke) * 2);
+      height: calc(100% - var(--stroke) * 2);
+      background: #0f172a;
+      border-radius: 50%;
+    }
+
+    .progress-value {
+      position: absolute;
+      font-size: 28px;
+      font-weight: 600;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar--container">
+    <div class="progress-value">75%</div>
+  </div>
+
+</body>
+</html>

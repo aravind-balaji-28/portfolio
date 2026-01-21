@@ -7,7 +7,7 @@ import { mergeClass } from "../../helpers/tailwindMergeClass";
 
 type Variant = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body";
 
-interface TypographyProps {
+interface ITypographyProps {
   variant?: Variant;
   as?: keyof React.JSX.IntrinsicElements;
   className?: string;
@@ -24,12 +24,12 @@ const tagMap: Record<Variant, keyof React.JSX.IntrinsicElements> = {
   body: "p",
 };
 
-export function Typography({
+export const Typography: React.FC<ITypographyProps> = ({
   variant = "body",
   as,
   className,
   children,
-}: TypographyProps) {
+}) => {
   const Tag = as ?? tagMap[variant];
 
   return (
