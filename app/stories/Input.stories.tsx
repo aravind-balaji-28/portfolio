@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { ProgressBar } from "../components/ProgressBar";
+import { Input } from "../components/Input";
 
 
-const meta: Meta<typeof ProgressBar> = {
-  title: "Component/ProgressBar",
-  component: ProgressBar,
+const meta: Meta<typeof Input> = {
+  title: "Component/Input",
+  component: Input,
   tags: ["autodocs"],
 
   parameters: {
@@ -59,7 +59,7 @@ const meta: Meta<typeof ProgressBar> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ProgressBar>;
+type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {

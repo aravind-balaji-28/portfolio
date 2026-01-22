@@ -2,6 +2,7 @@ import type { Decorator, Preview } from "@storybook/react";
 import "../app/fonts/storybook-font.css"; 
 import "../app/icons.css";           
 import "../app/globals.css";       
+import "../app/storybook.css";       
 
 
 const withFont: Decorator = (Story) => (

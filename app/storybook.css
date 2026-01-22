@@ -1,0 +1,5 @@
+.docs-story:has(.progress-bar-comp),
+#storybook-root:has(.progress-bar-comp) {
+  background-color: #000;
+  width: 100%;
+}

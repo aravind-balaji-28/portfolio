@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 
 export const typographyCva = cva(
     // Base (never overridden)
-    "font-base leading-[1.12]",
+    "typography-comp font-base leading-[1.12]",
 
     {
         variants: {

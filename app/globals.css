@@ -19,15 +19,6 @@
 
 /* Utilities */
 @layer utilities {
-  .progress-ring {
-    background: conic-gradient(
-      from 90deg,
-      rgba(253, 111, 0, 1) 0%,
-      rgba(228, 100, 0, 1) calc(var(--progress) * 1%),
-      rgb(217 217 217 / 20%) 0%
-    );
-  }
-
   .font-base {
     font-family: var(--font-base);
   }

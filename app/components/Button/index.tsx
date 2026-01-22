@@ -96,7 +96,7 @@ export const Button: React.FC<IButtonProps> = ({
 
 
   const baseClass =
-    "relative inline-flex items-center justify-center gap-2.5 cursor-pointer transition disabled:cursor-not-allowed disabled:pointer-events-none";
+    "button-comp relative inline-flex items-center justify-center gap-2.5 cursor-pointer transition disabled:cursor-not-allowed disabled:pointer-events-none";
 
   const sizesClass = {
     md: "px-[30px] py-3",
