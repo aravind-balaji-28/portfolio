@@ -3,7 +3,7 @@ import { ProgressBar } from "../components/ProgressBar";
 
 
 const meta: Meta<typeof ProgressBar> = {
-  title: "Component/ProgressBar",
+  title: "Components/ProgressBar",
   component: ProgressBar,
   tags: ["autodocs"],
 

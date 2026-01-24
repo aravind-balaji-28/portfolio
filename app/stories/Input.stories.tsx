@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "../components/Input";
 
 const meta: Meta<typeof Input> = {
-  title: "Component/Input",
+  title: "Components/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {
@@ -23,7 +23,8 @@ const meta: Meta<typeof Input> = {
     },
     variant: {
      control: "select",
-     options: ["filled", "outlined", "standard"] ,
+    //  options: ["filled", "outlined", "standard"] ,
+     options: [ "outlined"] ,
       description: "Material UI TextField variant",
       table: {
         category: "Props",
@@ -46,7 +47,7 @@ export const Default: Story = {
   args: {
     id: "filled-basic",
     label: "UserName",
-    variant: "filled",
+    variant: "outlined",
     className: "",
   },
 };

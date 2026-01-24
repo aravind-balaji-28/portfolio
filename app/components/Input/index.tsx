@@ -10,19 +10,17 @@ interface InputProps {
 export const Input: React.FC<InputProps> = ({
     id = "filled-basic",
     label = "UserName",
-    variant = "filled",
+    variant = "outlined",
     className = "",
 }) => {
     return (
-        <div className={`input-comp ${className}`}>
-            <TextField
-                id={id}
-                size="small"
-                label={label}
-                variant={variant}
-                fullWidth
-                className="p-4"
-            />
-        </div>
+        <TextField
+            id={id}
+            size="small"
+            label={label}
+            variant={variant}
+            fullWidth
+            className={`input-comp w-full max-w-[30.688rem] p-4 ${className}`}
+        />
     );
 };

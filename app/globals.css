@@ -93,20 +93,18 @@
 }
 
 @layer base {
-  .input-comp .MuiFormControl-root {
+  /* Input Comp */
+  .input-comp.MuiFormControl-root {
     @apply rounded-lg bg-[#ffffff26];
   }
 
-  /* Label default */
   .input-comp .MuiFormLabel-root {
     @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
   }
 
-  /* Label shrink */
   .input-comp .MuiInputLabel-shrink {
     transform: unset !important;
-    @apply
-      !left-[0.625rem]
+    @apply !left-[0.625rem]
       !top-0
       !translate-x-[0.75rem]
       !-translate-y-[0.5625rem]
@@ -126,11 +124,62 @@
   }
 
   .input-comp .MuiInputBase-input {
-    @apply
-      !px-[1.375rem]
+    @apply !px-[1.375rem]
       !py-[0.875rem]
       !h-[unset]
       !text-[var(--white-dark)];
   }
-}
 
+  /* Select Comp */
+
+  .select-comp.MuiFormControl-root {
+    @apply rounded-lg bg-[#ffffff26];
+  }
+
+  /* Label default */
+  .select-comp .MuiFormLabel-root {
+    @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
+  }
+
+  /* Label shrink */
+  .select-comp .MuiInputLabel-shrink {
+    transform: unset !important;
+    @apply !left-[0.625rem]
+      !top-0
+      !translate-x-[0.75rem]
+      !-translate-y-[0.5625rem]
+      !scale-[0.75];
+  }
+
+  .select-comp .MuiInputBase-root fieldset {
+    @apply !p-0;
+  }
+
+  .select-comp .MuiInputBase-root .MuiSelect-icon path {
+    @apply !fill-[var(--white-dark)];
+  }
+
+  .select-comp .MuiInputBase-root fieldset legend {
+    @apply ml-[1.2rem];
+  }
+
+  .select-comp .MuiInputBase-root fieldset legend span {
+    @apply !px-[0.1875rem];
+  }
+
+  .select-comp .MuiInputBase-input {
+    @apply !px-[1.375rem]
+      !py-[0.875rem]
+      !h-[unset]
+      !text-[var(--white-dark)];
+  }
+  .select-menu-dropdown {
+    @apply rounded-lg !bg-[#ffffff26];
+  }
+  .select-menu-dropdown ul li {
+    @apply !text-[var(--white-dark)];
+  }
+  .select-menu-dropdown ul li.Mui-selected {
+    @apply !bg-[#1976d2]/[0.93];
+  }
+}

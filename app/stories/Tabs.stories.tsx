@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Tabs } from "../components/Tabs";
 
 const meta: Meta<typeof Tabs> = {
-    title: "Component/Tabs",
+    title: "Components/Tabs",
     component: Tabs,
     tags: ["autodocs"],
 
