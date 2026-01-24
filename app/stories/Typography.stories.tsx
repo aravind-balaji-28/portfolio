@@ -53,7 +53,7 @@ const content = {
 }
 export const H1: Story = {
   args: {
-    variant: "h3",
+    variant: "h1",
     children: content.text,
   },
 }

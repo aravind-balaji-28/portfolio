@@ -3,6 +3,7 @@ import { baseFont } from "./fonts/baseFont";
 import "../app/icons.css";           
 import "../app/globals.css";       
 import "../app/storybook.css";       
+import "material-symbols/rounded.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",

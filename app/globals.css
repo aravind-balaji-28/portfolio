@@ -182,4 +182,14 @@
   .select-menu-dropdown ul li.Mui-selected {
     @apply !bg-[#1976d2]/[0.93];
   }
+
+  /* Landing Page */
+  .landing-page .header .button-comp .btn-text {
+    @apply !text-[1rem];
+    line-height: normal !important;
+  }
+
+  .landing-page .body .button-comp svg path {
+    @apply !fill-[#BABABA];
+  }
 }
