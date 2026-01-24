@@ -1,71 +1,52 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+// Input.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "../components/Input";
-
 
 const meta: Meta<typeof Input> = {
   title: "Component/Input",
   component: Input,
   tags: ["autodocs"],
-
-  parameters: {
-    layout: "centered",
-    backgrounds: {
-      default: "black",
-      values: [
-        { name: "black", value: "#000000" },
-      ],
-    },
-  },
-
   argTypes: {
-    /** ---------------- Styling ---------------- */
+    id: {
+      control: "text",
+      description: "ID for the input field",
+      table: {
+        category: "Props",
+      },
+    },
+    label: {
+      control: "text",
+      description: "Label for the input field",
+      table: {
+        category: "Props",
+      },
+    },
+    variant: {
+     control: "select",
+     options: ["filled", "outlined", "standard"] ,
+      description: "Material UI TextField variant",
+      table: {
+        category: "Props",
+      },
+    },
     className: {
       control: "text",
-      description: "Custom CSS class for additional styling",
+      description: "Additional CSS class for the wrapper div",
       table: {
         category: "Styling",
-      },
-    },
-
-    /** ---------------- Content ---------------- */
-    value: {
-      control: {
-        type: "number",
-        min: 0,
-        max: 100,
-      },
-      description: "Progress value as a percentage (0–100).",
-      table: {
-        category: "Content",
-      },
-    },
-
-    icon: {
-      control: "text",
-      description: "Material icon name or custom React node",
-      table: {
-        category: "Content",
-      },
-    },
-    title: {
-      control: "text",
-      description: "Title the Progress Bar",
-      table: {
-        category: "Content",
       },
     },
   },
 };
 
 export default meta;
-
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    title:'JavaScript',
-    value: 75,
-    icon: "javascript",
-    className: "dark",
+    id: "filled-basic",
+    label: "UserName",
+    variant: "filled",
+    className: "",
   },
 };
