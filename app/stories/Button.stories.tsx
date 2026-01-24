@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs"
 import { Button } from "../components/Button";
 const meta: Meta<typeof Button> = {
-  title: "Component/Button",
+  title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
   parameters: {

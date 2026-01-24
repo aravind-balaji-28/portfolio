@@ -1,61 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Circular Progress Bar</title>
-  <style>
-    :root {
-      --progress: 75; /* change value (0–100) */
-      --size: 160px;
-      --stroke: 14px;
-      --primary: #4f46e5;
-      --bg: #e5e7eb;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dark Themed Form</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #eee;
+  }
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #eee;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+  }
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="tel"]::placeholder,
+  select::placeholder,
+  textarea::placeholder {
+    color: #888;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #6a9fff;
+    background-color: #2a2a2a;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, #888 50%),
+      linear-gradient(135deg, #888 50%, transparent 50%),
+      linear-gradient(to right, #333, #333);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 25px) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  /* Make the timeline and project details fields appear full width on smaller screens */
+  @media (max-width: 600px) {
+    form {
+      grid-template-columns: 1fr;
     }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0f172a;
-      font-family: system-ui, sans-serif;
-    }
-
-    .progress-bar--container {
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background:
-        conic-gradient(
-          var(--primary) calc(var(--progress) * 1%),
-          var(--bg) 0
-        );
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .progress-bar--container::before {
-      content: "";
-      width: calc(100% - var(--stroke) * 2);
-      height: calc(100% - var(--stroke) * 2);
-      background: #0f172a;
-      border-radius: 50%;
-    }
-
-    .progress-value {
-      position: absolute;
-      font-size: 28px;
-      font-weight: 600;
-      color: #fff;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-
-  <div class="progress-bar--container">
-    <div class="progress-value">75%</div>
+  <div class="container">
+    <form>
+      <input type="text" name="name" placeholder="Name" autocomplete="name" />
+      <input type="email" name="email" placeholder="Email" autocomplete="email" />
+      
+      <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" />
+      <select name="service" aria-label="Service Of Interest">
+        <option value="" disabled selected>Service Of Interest</option>
+        <option value="web-design">Website Design</option>
+        <option value="app-mobile">App Mobile Design</option>
+        <option value="app-desktop">App Desktop</option>
+        <option value="braiding">Braiding</option>
+      </select>
+      
+      <input type="text" name="timeline" placeholder="Timeline" />
+      <textarea name="project-details" placeholder="Project Details..."></textarea>
+    </form>
   </div>
-
 </body>
 </html>

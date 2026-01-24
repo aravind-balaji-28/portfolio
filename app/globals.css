@@ -53,7 +53,6 @@
   --grey-dark-active: #0d0d0d;
   --grey-darker: #0b0b0b;
 
-
   --bg-primary: linear-gradient(
     94deg,
     rgba(253, 111, 0, 1) 0%,
@@ -78,17 +77,109 @@
     color: var(--color-primary);
   }
   #storybook-root .sb-top-center {
-    width: 100%;   
+    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 24px;   
+    padding-top: 24px;
   }
   .tabs-comp .button-comp .btn-text {
     color: var(--white-normal-active);
   }
   .tabs-comp .button-comp.is-active .btn-text {
-    color:#fff;
+    color: #fff;
+  }
+}
+
+@layer base {
+  /* Input Comp */
+  .input-comp.MuiFormControl-root {
+    @apply rounded-lg bg-[#ffffff26];
+  }
+
+  .input-comp .MuiFormLabel-root {
+    @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
+  }
+
+  .input-comp .MuiInputLabel-shrink {
+    transform: unset !important;
+    @apply !left-[0.625rem]
+      !top-0
+      !translate-x-[0.75rem]
+      !-translate-y-[0.5625rem]
+      !scale-[0.75];
+  }
+
+  .input-comp .MuiInputBase-root fieldset {
+    @apply !p-0;
+  }
+
+  .input-comp .MuiInputBase-root fieldset legend {
+    @apply ml-[1.2rem];
+  }
+
+  .input-comp .MuiInputBase-root fieldset legend span {
+    @apply !px-[0.1875rem];
+  }
+
+  .input-comp .MuiInputBase-input {
+    @apply !px-[1.375rem]
+      !py-[0.875rem]
+      !h-[unset]
+      !text-[var(--white-dark)];
+  }
+
+  /* Select Comp */
+
+  .select-comp.MuiFormControl-root {
+    @apply rounded-lg bg-[#ffffff26];
+  }
+
+  /* Label default */
+  .select-comp .MuiFormLabel-root {
+    @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
+  }
+
+  /* Label shrink */
+  .select-comp .MuiInputLabel-shrink {
+    transform: unset !important;
+    @apply !left-[0.625rem]
+      !top-0
+      !translate-x-[0.75rem]
+      !-translate-y-[0.5625rem]
+      !scale-[0.75];
+  }
+
+  .select-comp .MuiInputBase-root fieldset {
+    @apply !p-0;
+  }
+
+  .select-comp .MuiInputBase-root .MuiSelect-icon path {
+    @apply !fill-[var(--white-dark)];
+  }
+
+  .select-comp .MuiInputBase-root fieldset legend {
+    @apply ml-[1.2rem];
+  }
+
+  .select-comp .MuiInputBase-root fieldset legend span {
+    @apply !px-[0.1875rem];
+  }
+
+  .select-comp .MuiInputBase-input {
+    @apply !px-[1.375rem]
+      !py-[0.875rem]
+      !h-[unset]
+      !text-[var(--white-dark)];
+  }
+  .select-menu-dropdown {
+    @apply rounded-lg !bg-[#ffffff26];
+  }
+  .select-menu-dropdown ul li {
+    @apply !text-[var(--white-dark)] transform-gpu will-change-transform !pl-[22px] !pr-[22px];
+  }
+  .select-menu-dropdown ul li.Mui-selected {
+    @apply !bg-[#1976d2]/[0.93];
   }
 }
