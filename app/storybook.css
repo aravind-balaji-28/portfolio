@@ -34,3 +34,9 @@
   background-color: #000;
   width: 100%;
 }
+
+.docs-story:has(.select-comp){
+  background-color: #000;
+  width: 100%;
+  height: 50vh;
+}

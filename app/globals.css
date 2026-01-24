@@ -177,7 +177,7 @@
     @apply rounded-lg !bg-[#ffffff26];
   }
   .select-menu-dropdown ul li {
-    @apply !text-[var(--white-dark)];
+    @apply !text-[var(--white-dark)] transform-gpu will-change-transform !pl-[22px] !pr-[22px];
   }
   .select-menu-dropdown ul li.Mui-selected {
     @apply !bg-[#1976d2]/[0.93];

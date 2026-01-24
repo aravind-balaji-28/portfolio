@@ -5,6 +5,7 @@ import { Select } from "../components/Select";
 const meta: Meta<typeof Select> = {
   title: "Components/Select",
   component: Select,
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "radio",
@@ -19,7 +20,7 @@ type Story = StoryObj<typeof Select>;
 export const Default: Story = {
   render: (args) => {
     const [value, setValue] = useState(args.value);
-
+ console.log(value ,">value");
     return (
       <Select
         {...args}
@@ -29,13 +30,13 @@ export const Default: Story = {
     );
   },
   args: {
-    label: "Age",
+    label: "Service of Interest",
     variant: "outlined",
-    value: 20,
+    value: '',
     options: [
-      { label: "Ten", value: 10 },
-      { label: "Twenty", value: 20 },
-      { label: "Thirty", value: 30 },
+      { label: "Mern Stack Developer", value: "Mern Stack Developer" },
+      { label: "Frontend Developer", value: "Frontend Developer" },
+      { label: "Backend Developer", value: "Backend Developer" },
     ],
   },
 };
