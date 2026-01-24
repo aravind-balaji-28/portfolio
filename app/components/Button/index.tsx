@@ -10,7 +10,7 @@ interface IButtonProps {
   size: "md" | "lg";
   icon?: string | React.ReactNode | React.ComponentType;
   text?: string;
-  color?: "dark" | "primary";
+  color?:  "primary" |"dark"
   iconPosition?: string;
   type?: "button" | "submit" | "reset";
   isIconOnly?: boolean;
@@ -36,7 +36,7 @@ export const Button: React.FC<IButtonProps> = ({
 ) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    alert("Button clicked");
+    console.log("Button clicked");
     onClick?.();
   };
 
@@ -84,7 +84,7 @@ export const Button: React.FC<IButtonProps> = ({
         <>
           {renderIcon("left")}
           {text && (
-            <Typography variant={size === "md" ? "body" : "h6"} className="font-bold text-inherit">
+            <Typography variant={size === "md" ? "body" : "h6"} className="btn-text font-bold text-inherit">
               {text}
             </Typography>
           )}
@@ -108,10 +108,8 @@ export const Button: React.FC<IButtonProps> = ({
         "text-white bg-primary disabled:opacity-50 disabled:saturate-50",
 
       dark:
-        "text-white bg-black disabled:opacity-50 disabled:saturate-50",
+        "text-white bg-[#ffffff26] disabled:opacity-50 disabled:saturate-50",
 
-      white:
-        "text-black bg-[var(--color-dark-hover) disabled:opacity-50 disabled:saturate-50",
     },
 
     outlined: {
@@ -120,7 +118,6 @@ export const Button: React.FC<IButtonProps> = ({
 
       dark:
         "text-black border border-black hover:bg-black hover:text-white disabled:opacity-50 disabled:hover:bg-transparent",
-      white: "text-[var(--color-dark-hover)] border border-[var(--color-white)] bg-transparent hover:bg-[var(--color-dark-hover)] hover:text-black disabled:opacity-50 disabled:hover:bg-transparent"
 
     },
 
@@ -131,8 +128,6 @@ export const Button: React.FC<IButtonProps> = ({
       dark:
         "text-black disabled:opacity-50",
 
-      white:
-        "text-white disabled:opacity-50",
     },
   };
 

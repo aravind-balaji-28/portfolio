@@ -3,3 +3,11 @@
   background-color: #000;
   width: 100%;
 }
+
+.docs-story:has(.tabs-comp),
+#storybook-root:has(.tabs-comp) {
+  background-color: #000;
+  width: 100%;
+}
+
+ 

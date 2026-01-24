@@ -35,7 +35,7 @@ const meta: Meta<typeof Button> = {
     },
     color: {
       control: "select",
-      options: ["primary", "white", "dark"],
+      options: ["primary", "dark"],
       description: "Sets the color theme of the button",
       table: {
         category: "Appearance",
