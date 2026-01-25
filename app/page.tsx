@@ -305,7 +305,7 @@ export default function Page() {
 
             </div>
           </div>
-          <div className="skills flex gap-[7rem]">
+          <div className="skills flex gap-[7rem] flex-wrap">
             {skills.map((skill, index) => (
               <ProgressBar
                 key={`${skill.title}-${index}`}
