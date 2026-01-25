@@ -53,6 +53,8 @@
   --grey-dark-active: #0d0d0d;
   --grey-darker: #0b0b0b;
 
+  /*Additional*/
+  --dark-grey: #ffffff0a;
   --bg-primary: linear-gradient(
     94deg,
     rgba(253, 111, 0, 1) 0%,
@@ -189,10 +191,25 @@
     line-height: normal !important;
   }
 
-  .landing-page .body .button-comp svg path {
+  .landing-page .body .profile .profile__left .button-comp svg path {
     @apply !fill-[#BABABA];
   }
   .landing-page .body .profile .profile__left .button-comp .btn-text {
+    line-height: normal !important;
+  }
+
+  .landing-page .body .service svg path {
+    @apply !fill-[var(--orange-normal)];
+    font-variation-settings: "FILL" 1;
+  }
+
+  .landing-page   
+    .body
+    .about  
+    .about__content
+    .about__content__right
+    .button-comp
+    .btn-text {
     line-height: normal !important;
   }
 }
