@@ -192,4 +192,7 @@
   .landing-page .body .button-comp svg path {
     @apply !fill-[#BABABA];
   }
+  .landing-page .body .profile .profile__left .button-comp .btn-text {
+    line-height: normal !important;
+  }
 }

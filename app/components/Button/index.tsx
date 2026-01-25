@@ -10,7 +10,7 @@ interface IButtonProps {
   size: "md" | "lg";
   icon?: string | React.ReactNode | React.ComponentType;
   text?: string;
-  color?:  "primary" |"dark"
+  color?: "primary" | "dark" | "white"
   iconPosition?: string;
   type?: "button" | "submit" | "reset";
   isIconOnly?: boolean;
@@ -109,6 +109,7 @@ export const Button: React.FC<IButtonProps> = ({
 
       dark:
         "text-white bg-[#ffffff26] disabled:opacity-50 disabled:saturate-50",
+      white:''
 
     },
 
@@ -118,6 +119,8 @@ export const Button: React.FC<IButtonProps> = ({
 
       dark:
         "text-black border border-black hover:bg-black hover:text-white disabled:opacity-50 disabled:hover:bg-transparent",
+      white:
+        "text-[var(--white-dark-hover)] border-2 border-[var(--white-dark-hover)] hover:bg-[var(--white-dark-hover)] hover:text-black disabled:opacity-50 disabled:hover:bg-transparent",
 
     },
 
@@ -127,6 +130,7 @@ export const Button: React.FC<IButtonProps> = ({
 
       dark:
         "text-black disabled:opacity-50",
+      white:''
 
     },
   };
