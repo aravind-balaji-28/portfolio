@@ -101,7 +101,7 @@
   }
 
   .input-comp .MuiFormLabel-root {
-    @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
+    @apply !text-[var(--white-dark-hover)] !left-[0.3125rem] !top-[0.3125rem];
   }
 
   .input-comp .MuiInputLabel-shrink {
@@ -129,7 +129,7 @@
     @apply !px-[1.375rem]
       !py-[0.875rem]
       !h-[unset]
-      !text-[var(--white-dark)];
+      !text-[var(--white-dark-hover)];
   }
 
   /* Select Comp */
@@ -140,7 +140,7 @@
 
   /* Label default */
   .select-comp .MuiFormLabel-root {
-    @apply !text-[var(--white-dark)] !left-[0.3125rem] !top-[0.3125rem];
+    @apply !text-[var(--white-dark-hover)] !left-[0.3125rem] !top-[0.3125rem];
   }
 
   /* Label shrink */
@@ -173,10 +173,10 @@
     @apply !px-[1.375rem]
       !py-[0.875rem]
       !h-[unset]
-      !text-[var(--white-dark)];
+      !text-[var(--white-dark-hover)];
   }
   .select-menu-dropdown {
-    @apply rounded-lg !bg-[#ffffff26];
+    @apply rounded-lg !bg-[#ffffff0a];
   }
   .select-menu-dropdown ul li {
     @apply !text-[var(--white-dark)] transform-gpu will-change-transform !pl-[22px] !pr-[22px];
@@ -187,7 +187,7 @@
 
   /* Landing Page */
   .landing-page .header .button-comp .btn-text {
-    @apply !text-[1rem];
+    @apply !text-sm xl:!text-base;
     line-height: normal !important;
   }
 
@@ -195,6 +195,7 @@
     @apply !fill-[var(--white-dark)];
   }
   .landing-page .body .profile .profile__left .button-comp .btn-text {
+    @apply !text-sm xl:!text-base;
     line-height: normal !important;
   }
 
@@ -203,22 +204,26 @@
     font-variation-settings: "FILL" 1;
   }
 
-  .landing-page   
+  .landing-page
     .body
-    .about  
+    .about
     .about__content
     .about__content__right
     .button-comp
     .btn-text {
     line-height: normal !important;
   }
-    .landing-page .contact .button-comp .btn-text {
+  .landing-page .contact .button-comp .btn-text {
     @apply !text-[1rem];
-    line-height: normal !important;  
+    line-height: normal !important;
   }
   .landing-page .footer .button-comp svg path {
-    @apply !fill-[var(--white-dark)]; 
-  }    
-}
-   
+    @apply !fill-[var(--white-dark)];
+  }
 
+  .landing-page .tabs-comp .button-comp {
+    @apply !gap-2.5
+       !py-3 !px-8
+       xl:!px-10;
+  }
+}

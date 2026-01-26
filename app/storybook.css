@@ -13,30 +13,30 @@
 
 .docs-story:has(.progress-bar-comp),
 #storybook-root:has(.progress-bar-comp) {
-  background-color: #000;
+  background-color: #121212;
   width: 100%;
 }
 
 .docs-story:has(.tabs-comp),
 #storybook-root:has(.tabs-comp) {
-  background-color: #000;
+  background-color: #121212;
   width: 100%;
 }
 
 .docs-story:has(.input-comp),
 #storybook-root:has(.input-comp) {
-  background-color: #000;
+  background-color: #121212;
   width: 100%;
 }
 
 .docs-story:has(.select-comp),
 #storybook-root:has(.select-comp) {
-  background-color: #000;
+  background-color: #121212;
   width: 100%;
 }
 
 .docs-story:has(.select-comp){
-  background-color: #000;
+  background-color: #121212;
   width: 100%;
   height: 50vh;
 }
