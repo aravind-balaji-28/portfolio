@@ -22,9 +22,9 @@ const meta: Meta<typeof Input> = {
       },
     },
     variant: {
-     control: "select",
-    //  options: ["filled", "outlined", "standard"] ,
-     options: [ "outlined"] ,
+      control: "select",
+      //  options: ["filled", "outlined", "standard"] ,
+      options: ["outlined"],
       description: "Material UI TextField variant",
       table: {
         category: "Props",
@@ -45,9 +45,21 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    id: "filled-basic",
+    id: "username_id",
     label: "UserName",
     variant: "outlined",
+    className: "",
+  },
+};
+
+
+export const LargeTextarea: Story = {
+  args: {
+    id: "project_description_id",
+    variant: "outlined",
+    label: "Project Description",
+    rows: 8,
+    multiline: true,
     className: "",
   },
 };

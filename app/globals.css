@@ -212,4 +212,9 @@
     .btn-text {
     line-height: normal !important;
   }
+    .landing-page .contact .button-comp .btn-text {
+    @apply !text-[1rem];
+    line-height: normal !important;  
+  }
 }
+

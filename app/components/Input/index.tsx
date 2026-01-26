@@ -5,6 +5,9 @@ interface InputProps {
     label?: string;
     variant: "filled" | "outlined" | "standard";
     className?: string;
+    multiline?: boolean;
+    rows?: number;
+
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -12,6 +15,8 @@ export const Input: React.FC<InputProps> = ({
     label = "UserName",
     variant = "outlined",
     className = "",
+    multiline = false,
+    rows = 1,
 }) => {
     return (
         <TextField
@@ -20,7 +25,9 @@ export const Input: React.FC<InputProps> = ({
             label={label}
             variant={variant}
             fullWidth
-            className={`input-comp w-full max-w-[30.688rem] p-4 ${className}`}
+            multiline={multiline}
+            {...(multiline && { rows })}
+            className={`input-comp w-full max-w-[30.688rem] bg-[var(--dark-grey)]  p-4 ${className}`}
         />
     );
 };

@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined } from '@mui/icons-material';
 import { Typography } from "./components/Typography";
 import { Button } from "./components/Button";
-import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined } from '@mui/icons-material';
-import SectionHeading from "./components/SectionHeading";
 import { ProgressBar } from "./components/ProgressBar";
+import { Tabs } from "./components/Tabs";
+import { Input } from "./components/Input";
+import { Select } from "./components/Select";
+import { SectionHeading } from "./components/SectionHeading";
 const NAV_ITEMS = ["Home", "Services", "About me", "Portfolio", "Contact me"];
 
 const skills = [
@@ -318,8 +321,130 @@ export default function Page() {
           </div>
         </div>
 
+        {/* Portfolio Section */}
+        <div className="portfolio flex flex-col items-center justify-center gap-[70px]">
+          <div className="flex flex-col gap-[40px]">
+            <SectionHeading className='portfolio__heading' title="Portfolio" />
+            <Tabs
+              className=""
+              tabs={[
+                {
+                  id: 1,
+                  label: 'All'
+                },
+                {
+                  id: 2,
+                  label: 'Ecommerce'
+                },
+                {
+                  id: 3,
+                  label: 'Crypto & DeFi'
+                },
+              ]}
+            />
+          </div>
+          <div className="flex w-full gap-[2rem] justify-center flex-wrap">
+            <div className="flex flex-col items-center w-full max-w-[415px]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              </div>
+              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
+                <Typography variant="body" className="text-[var(--white-normal-active)]">
+                  WonderSoft
+                </Typography>
+              </div>
+            </div>
+            <div className="flex flex-col items-center w-full max-w-[415px]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              </div>
+              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
+                <Typography variant="body" className="text-[var(--white-normal-active)]">
+                  WonderSoft
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div className="contact flex flex-col items-center justify-center gap-[50px]">
+          <SectionHeading className='contact__heading' title="Contact Me" description="Let’s Connect — Feel Free to Reach Out" />
 
+          <div className="flex flex-col w-full max-w-[1012px] gap-[30px]">
+            <div className="flex w-full gap-[30px]">
+              <Input
+                className=""
+                id="name_id"
+                label="Name"
+                variant="outlined"
+              />
+              <Input
+                className=""
+                id="email_id"
+                label="Email"
+                variant="outlined"
+              />
+            </div>
+
+            <div className="flex w-full gap-[30px]">
+              <Input
+                className=""
+                id="phone_number_id"
+                label="Phone Number"
+                variant="outlined"
+              />
+              <Select
+                label="Service of Interest"
+                onChange={() => { }}
+                options={[
+                  {
+                    label: 'Mern Stack Developer',
+                    value: 'Mern Stack Developer'
+                  },
+                  {
+                    label: 'Frontend Developer',
+                    value: 'Frontend Developer'
+                  },
+                  {
+                    label: 'Backend Developer',
+                    value: 'Backend Developer'
+                  }
+                ]}
+                value=""
+                variant="outlined"
+              />
+
+            </div>
+
+            <div className="flex w-full gap-[30px] items-start">
+              <Input
+                className=""
+                id="phone_number_id"
+                label="Phone Number"
+                variant="outlined"
+              />
+              <Input
+                className=""
+                id="project_description_id"
+                label="Project Description"
+                multiline
+                rows={8}
+                variant="outlined"
+              />
+            </div>
+            <div className="flex justify-end w-full">
+              <Button
+                borderRadius="corner"
+                color="white"
+                iconPosition="left"
+                onClick={() => { }}
+                size="lg"
+                text="Send"
+                type="button"
+                variant="outlined"
+              />
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

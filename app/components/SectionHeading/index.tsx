@@ -7,9 +7,9 @@ interface ISectionHeadingProps {
   className?: string;
 }
 
-const SectionHeading: React.FC<ISectionHeadingProps> = ({
-  title = "Services",
-  description = "Building secure, scalable, and high-performance web applications with modern technologies.",
+export const SectionHeading: React.FC<ISectionHeadingProps> = ({
+  title = "",
+  description = "",
   className = "",
 }) => {
   return (
@@ -32,4 +32,3 @@ const SectionHeading: React.FC<ISectionHeadingProps> = ({
   );
 };
 
-export default SectionHeading;

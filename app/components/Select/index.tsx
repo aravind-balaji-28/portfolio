@@ -73,7 +73,7 @@ export const Select: React.FC<SelectProps> = ({
       fullWidth
       variant={variant}
       size="small"
-      className={`select-comp w-full max-w-[30.688rem] ${className}`}
+      className={`select-comp w-full max-w-[30.688rem] bg-[var(--dark-grey)] ${className}`}
     >
       <InputLabel id={labelId}>{label}</InputLabel>
 
