@@ -1,3 +1,4 @@
+"use client";
 import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined } from '@mui/icons-material';
 
 export const NAV_ITEMS = ["Home", "Services", "About me", "Portfolio", "Contact me"];

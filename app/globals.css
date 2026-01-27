@@ -187,7 +187,8 @@
 
   /* Landing Page */
   .landing-page .header .button-comp .btn-text {
-    @apply !text-sm xl:!text-base;
+    @apply !text-sm lg:!text-base
+    !font-normal !text-base lg:!font-medium;
     line-height: normal !important;
   }
 
@@ -195,7 +196,8 @@
     @apply !fill-[var(--white-dark)];
   }
   .landing-page .body .profile .profile__left .button-comp .btn-text {
-    @apply !text-sm xl:!text-base;
+    @apply !text-sm lg:!text-base
+    !font-normal !text-base lg:!font-medium;
     line-height: normal !important;
   }
 
@@ -224,6 +226,6 @@
   .landing-page .tabs-comp .button-comp {
     @apply !gap-2.5
        !py-3 !px-8
-       xl:!px-10;
+       lg:!px-10;
   }
 }
