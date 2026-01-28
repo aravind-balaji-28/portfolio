@@ -48,7 +48,7 @@ export default function Page() {
     />
   }
   const NavLink = (): React.JSX.Element => {
-    return <div className="hidden lg:flex items-center gap-[3.75rem]">
+    return <div className="header__links hidden lg:flex items-center gap-[3.75rem]">
       {NAV_ITEMS.map((item) => (
         <Typography
           key={item}
@@ -90,7 +90,7 @@ export default function Page() {
 
     <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px] pt-[28px] md:gap-[80px] md:pt-[42px] lg:gap-[150px] lg:pt-[56px]">
       <header className="header flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
-        <button className="block lg:hidden">
+        <button className="header__btn--expand block lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6 text-white"
@@ -106,78 +106,76 @@ export default function Page() {
         <NavLink />
         <RenderHirMe />
       </header>
-      <div className="body flex flex-col gap-[100px] px-[16px] md:gap-[120px] md:px-[40px] lg:gap-[150px] lg:px-[80px]">
+      <div className="body flex flex-col gap-[100px] px-[16px] md:gap-[120px] md:px-[40px] lg:gap-[150px] lg:px-[80px] w-full">
         {/* Profile Section pending */}
-        <div className="profile flex flex-col lg:flex-row justify-between items-center">
-          <div className="profile__left">
-            <div className="flex flex-col gap-[50px] lg:gap-[5rem]">
-              <div className="flex flex-col gap-[3.75rem]">
-                <div className="flex flex-col gap-[1.5rem]">
-                  <div className="flex flex-col items-center md:items-start lg:items-start">
-                    <Typography variant="h5" className="!text-[var(--white-dark-active)] text-base md:text-xl lg:text-2xl">
-                      Hi I am
-                    </Typography>
-                    <Typography variant="h4" className="!text-[var(--white-dark-hover)] text-xl md:text-2xl lg:text-[28px]">
-                      Aravind Balaji G.V
-                    </Typography>
-                  </div>
-                  <Typography variant="h1"
-                    className="bg-[linear-gradient(160deg,rgba(152,67,0,0)_0%,rgba(253,111,0,1)_38%,rgba(202,89,0,1)_100%)] bg-clip-text text-transparent text-[3.125rem] md:text-[3.75rem] lg:text-[4.375rem]
- font-black tracking-[0.131rem] leading-normal break-words whitespace-normal text-center md:break-normal md:whitespace-nowrap md:text-left
-">
-                    Mern Stack Developer
+        <div className="profile flex flex-col gap-[100px] md:gap-[130px] lg:gap-0 lg:flex-row justify-between items-center w-full">
+          <div className="profile__left flex flex-col gap-[50px] md:gap-[65px] lg:gap-[80px] w-full items-center lg:items-start">
+            <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[60px] w-full">
+              <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
+                <div className="flex flex-col gap-[10px] items-center lg:items-start w-full">
+                  <Typography variant="h5" className="!text-[var(--white-dark-active)] text-base md:text-xl lg:text-2xl">
+                    Hi I am
                   </Typography>
-                  <div className="flex gap-[1.25rem] justify-center md:justify-start lg:justify-start">
-                    <SocialMediaIcons />
-                  </div>
+                  <Typography variant="h4" className="!text-[var(--white-dark-hover)] text-xl md:text-2xl lg:text-[28px]">
+                    Aravind Balaji G.V
+                  </Typography>
                 </div>
-                <div className="flex gap-[1.5rem] justify-center md:justify-start lg:justify-start">
-                  <RenderHirMe />
-                  <Button
-                    borderRadius="corner"
-                    color="white"
-                    iconPosition="left"
-                    onClick={() => { }}
-                    size="lg"
-                    text="Download CV"
-                    type="button"
-                    className="px-[1rem] py-[0.5rem] md:px-[1.75rem] md:py-[0.625rem] lg:px-[2.5rem] lg:py-[0.75rem]"
-                    variant="outlined"
-                  />
+                <Typography variant="h1"
+                  className="bg-[linear-gradient(160deg,rgba(152,67,0,0)_0%,rgba(253,111,0,1)_38%,rgba(202,89,0,1)_100%)] bg-clip-text text-transparent text-[3.125rem] md:text-[3.75rem] lg:text-[4.375rem]
+ font-black tracking-[0.131rem] leading-tight break-words whitespace-normal text-center lg:break-normal lg:whitespace-nowrap lg:text-left">
+                  Mern Stack Developer
+                </Typography>
+                <div className="flex gap-[1.25rem] justify-center lg:justify-start">
+                  <SocialMediaIcons />
                 </div>
               </div>
-              <div className="flex gap-[1.875rem] p-[16px] md:p-[20px] lg:p-[1.5rem] bg-[var(--dark-grey)] w-full max-w-max rounded-[0.5rem]">
-                {HIGHLIGHTS.map((item, index) => {
-                  const isLast = index === HIGHLIGHTS.length - 1;
-                  return (
-                    <div
-                      key={index}
-                      className={[
-                        "flex flex-col items-center gap-[0.75rem]",
-                        !isLast &&
-                        "border-r-2 border-[var(--white-dark-hover)] pr-[14px] md:pr-[22px] lg:pr-[1.875rem]",
-                      ]
-                        .filter(Boolean)
-                        .join(" ")}
-                    >
-                      <Typography variant="h5" className="text-[var(--orange-normal)] text-[20px] md:text-[22px] lg:text-[24px]"
-                      >
-                        {item.value}
-                      </Typography>
-                      <Typography variant="h6" className="text-[var(--white-normal)] text-[16px] md:text-[18px] lg:text-[20px] whitespace-nowrap
-                      ">
-                        {item.label}
-                      </Typography>
-                    </div>
-                  );
-                })}
+              <div className="flex gap-[1.5rem] justify-center lg:justify-start">
+                <RenderHirMe />
+                <Button
+                  borderRadius="corner"
+                  color="white"
+                  iconPosition="left"
+                  onClick={() => { }}
+                  size="lg"
+                  text="Download CV"
+                  type="button"
+                  className="px-[1rem] py-[0.5rem] md:px-[1.75rem] md:py-[0.625rem] lg:px-[2.5rem] lg:py-[0.75rem]"
+                  variant="outlined"
+                />
               </div>
             </div>
+            <div className="flex gap-[14px] md:gap-[22px] lg:gap-[30px] p-[16px] md:p-[20px] lg:p-[1.5rem] bg-[var(--dark-grey)] w-full max-w-max rounded-[0.5rem] justify-center lg:justify-start">
+              {HIGHLIGHTS.map((item, index) => {
+                const isLast = index === HIGHLIGHTS.length - 1;
+                return (
+                  <div
+                    key={index}
+                    className={[
+                      "flex flex-col items-center gap-[0.75rem] w-full",
+                      !isLast &&
+                      "border-r-2 border-[var(--white-dark-hover)] pr-[14px] md:pr-[22px] lg:pr-[1.875rem]",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <Typography variant="h5" className="leading-normal text-[var(--orange-normal)] text-[20px] md:text-[22px] lg:text-[24px]"
+                    >
+                      {item.value}
+                    </Typography>
+                    <Typography variant="h6" className="leading-normal text-[var(--white-normal)] text-[16px] md:text-[18px] lg:text-[20px] whitespace-nowrap
+                      ">
+                      {item.label}
+                    </Typography>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="profile__right">
-            <div className="relative flex items-center justify-center bg-[var(--dark-grey)] rounded-full w-[30rem] h-[30rem]">
-              <div className="absolute left-[0.625rem] bottom-[0] w-full">
-                <Image className="w-full h-full rounded-full object-cover grayscale" src="/img/profile-img.png" alt="Logo" width={300}
+          <div className="profile__right flex items-center justify-center w-full">
+            <div className="relative flex items-center justify-center bg-[var(--dark-grey)] rounded-full w-[320px] h-[320px] md:w-[410px] md:h-[410px] lg:w-[480px] lg:h-[480px]">
+              <div className="absolute bottom-[0] w-full">
+                <Image className="w-full h-full rounded-full object-cover grayscale hover:scale-105 transition-transform duration-300
+" src="/img/profile-img.png" alt="Logo" width={300}
                   height={200}
                 />
               </div>
