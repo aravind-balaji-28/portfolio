@@ -16,7 +16,7 @@ export const SectionHeading: React.FC<ISectionHeadingProps> = ({
     <div className={`${className} flex flex-col items-center text-center`}>
       <Typography
         variant="h2"
-        className="text-[2.5rem] text-[var(--white-light)]"
+        className="text-[var(--white-light)] text-[24px] md:text-[32px] lg:text-[40px]"
       >
         {title}
       </Typography>
@@ -24,7 +24,7 @@ export const SectionHeading: React.FC<ISectionHeadingProps> = ({
       {description !== "" &&
         <Typography
           variant="h6"
-          className="text-[var(--white-dark-active)]"
+          className="text-[var(--white-dark-active)] text-[16px] md:text-[18px] lg:text-[20px]"
         >
           {description}
         </Typography>}

@@ -174,8 +174,7 @@ export default function Page() {
           <div className="profile__right flex items-center justify-center w-full">
             <div className="relative flex items-center justify-center bg-[var(--dark-grey)] rounded-full w-[320px] h-[320px] md:w-[410px] md:h-[410px] lg:w-[480px] lg:h-[480px]">
               <div className="absolute bottom-[0] w-full">
-                <Image className="w-full h-full rounded-full object-cover grayscale hover:scale-105 transition-transform duration-300
-" src="/img/profile-img.png" alt="Logo" width={300}
+                <Image className="w-full h-full rounded-full object-cover grayscale" src="/img/profile-img.png" alt="Logo" width={300}
                   height={200}
                 />
               </div>
@@ -183,28 +182,28 @@ export default function Page() {
           </div>
         </div>
         {/* Service Section */}
-        {/* <div className="service flex flex-col items-center justify-center gap-[80px]">
+        <div className="service flex flex-col items-center justify-center gap-[80px]">
           <SectionHeading title="Services" description="Building secure, scalable, and high-performance web applications with modern technologies." />
-          <div className="grid grid-cols-1 gap-[2.125rem] place-items-stretch">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-[16px] lg:gap-[22px] lg:gap-[34px] place-items-stretch">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center  gap-[2.125rem]
-                   bg-[var(--dark-grey)] rounded-[1.5rem] p-[2.125rem]
+                  className="flex flex-col items-center justify-center gap-[16px] md:gap-[24px] lg:gap-[34px]
+                   bg-[var(--dark-grey)] rounded-[16px] md:rounded-[22px] lg:rounded-[24px] p-[22px] lg:p-[32px] lg:p-[34px]
                    w-full max-w-[24.979rem]"
                 >
-                  <div className="flex flex-col items-center gap-[1rem]">
-                    <Icon className="!w-[3.642rem] !h-auto" />
-                    <Typography variant="h5" className="text-[var(--orange-normal)]">
+                  <div className="flex flex-col items-center gap-[8px] md:gap-[12px] lg:gap-[16px]">
+                    <Icon className="!w-[34px] md:!w-[46px] lg:!w-[58px] !h-auto" />
+                    <Typography variant="h5" className="text-[var(--orange-normal)] text-center text-[20px] md:text-[22px] lg:text-[24px] leading-normal">
                       {service.title}
                     </Typography>
                   </div>
                   <Typography
                     variant="h6"
                     title={service.description}
-                    className="text-[var(--white-darker)] text-center line-clamp-3"
+                    className="text-[var(--white-darker)] text-center line-clamp-2 md:line-clamp-3 lg:line-clamp-3 text-[16px] md:text-[18px] lg:text-[20px] leading-normal"
                   >
                     {service.description}
                   </Typography>
@@ -212,7 +211,7 @@ export default function Page() {
               );
             })}
           </div>
-        </div> */}
+        </div>
         {/* About Me Section */}
         {/* <div className="about flex flex-col items-center justify-center gap-[80px]">
           <SectionHeading className='about__heading' title="About Me" description="MERN stack developer with 4 years of experience building scalable, full-stack web applications." />
