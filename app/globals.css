@@ -224,8 +224,15 @@
   }
 
   .landing-page .tabs-comp .button-comp {
-    @apply !gap-2.5
-       !py-3 !px-8
-       lg:!px-10;
+    @apply !py-[10px] !px-[20px] lg:!py-[12px] lg:!px-[40px];
+  }
+  .landing-page .tabs-comp .button-comp .btn-text {
+    @apply !text-[14px] md:!text-[15px] lg:!text-[16px];
+  }
+  .landing-page .progress-bar-comp .progress__bar__percentage {
+    @apply !text-[24px] md:!text-[27px] lg:!text-[30px];
+  }
+  .landing-page .progress-bar-comp .progress__bar__title {
+    @apply !text-[20px] md:!text-[22px] lg:!text-[24px];
   }
 }

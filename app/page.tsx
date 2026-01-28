@@ -182,7 +182,7 @@ export default function Page() {
           </div>
         </div>
         {/* Service Section */}
-        <div className="service flex flex-col items-center justify-center gap-[80px]">
+        <div className="service flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
           <SectionHeading title="Services" description="Building secure, scalable, and high-performance web applications with modern technologies." />
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-[16px] lg:gap-[22px] lg:gap-[34px] place-items-stretch">
             {SERVICES.map((service, index) => {
@@ -196,14 +196,14 @@ export default function Page() {
                 >
                   <div className="flex flex-col items-center gap-[8px] md:gap-[12px] lg:gap-[16px]">
                     <Icon className="!w-[34px] md:!w-[46px] lg:!w-[58px] !h-auto" />
-                    <Typography variant="h5" className="text-[var(--orange-normal)] text-center text-[20px] md:text-[22px] lg:text-[24px] leading-normal">
+                    <Typography variant="h5" className="text-[var(--orange-normal)] text-center text-[20px] md:text-[22px] lg:text-[24px] leading-[normal] md:leading-[1.5]">
                       {service.title}
                     </Typography>
                   </div>
                   <Typography
                     variant="h6"
                     title={service.description}
-                    className="text-[var(--white-darker)] text-center line-clamp-2 md:line-clamp-3 lg:line-clamp-3 text-[16px] md:text-[18px] lg:text-[20px] leading-normal"
+                    className="text-[var(--white-darker)] text-center line-clamp-2 md:line-clamp-3 lg:line-clamp-3 text-[16px] md:text-[18px] lg:text-[20px] leading-[normal] md:leading-[1.5]"
                   >
                     {service.description}
                   </Typography>
@@ -213,29 +213,26 @@ export default function Page() {
           </div>
         </div>
         {/* About Me Section */}
-        {/* <div className="about flex flex-col items-center justify-center gap-[80px]">
+        <div className="about flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
           <SectionHeading className='about__heading' title="About Me" description="MERN stack developer with 4 years of experience building scalable, full-stack web applications." />
-          <div className="about__content flex gap-[6.25rem]">
+          <div className="about__content flex flex-col items-center lg:flex-row  gap-[34px] md:gap-[70px] lg:gap-[100px]">
             <div className="about__content__left">
-              <div className="relative flex items-center justify-center bg-[var(--dark-grey)]  w-[30rem] h-[40rem] rounded-t-[50%]
-         rounded-b-[0.625rem]
-         [border-top-left-radius:50%_35%]
-         [border-top-right-radius:50%_35%] ">
+              <div className="relative flex items-center justify-center bg-[var(--dark-grey)] w-[18rem] h-[26rem] md:w-[24rem] md:h-[32rem] lg:w-[30rem] lg:h-[40rem] rounded-b-[0.625rem] [border-top-left-radius:50%_35%] [border-top-right-radius:50%_35%]">
                 <div className="absolute left-[0] bottom-[0] w-full">
                   <Image className="w-full h-full object-cover grayscale" src="/img/profile-img.png" alt="Logo" width={400}
                     height={200}
                   />
                 </div>
               </div>
-            </div> <div className="about__content__right flex flex-col gap-[2.5rem]">
-              <Typography variant="h6" className="text-[var(--white-dark-hover)] leading-[1.9] tracking-normal">
+            </div> <div className="about__content__right flex flex-col gap-[24px] md:[gap-32px] lg:gap-[40px] items-center lg:items-start">
+              <Typography variant="h6" className="text-[var(--white-dark-hover)] leading-[1.9] tracking-normal text-[16px] md:text-[18px] lg:text-[20px]">
                 I’m Aravind Balaji G.V, a Full Stack Developer with a passion for building comprehensive web applications. I specialize in both front-end and back-end development, creating responsive user interfaces, managing server-side logic, and working with databases to deliver seamless, efficient solutions. Previously, I worked with service-based companies, and currently, I’m focusing on developing scalable and high-performance web applications in a product-based company. My skill set includes technologies such as React, Node.js, Express, MongoDB, and more, and I’m dedicated to staying at the forefront of industry trends to continuously deliver impactful, user-centric solutions.
               </Typography>
               <Button
                 borderRadius="corner"
                 color="primary"
                 icon={<DownloadSvg />}
-                className="max-w-max tracking-[0.03em]"
+                className="max-w-max tracking-[0.03em] px-[30px] py-[12px] px-[24px] py-[10px] md:px-[28px] md:py-[11px] lg:px-[30px] lg:py-[12px]"
                 iconPosition="left"
                 onClick={() => { }}
                 size="md"
@@ -247,9 +244,9 @@ export default function Page() {
             <div>
             </div>
           </div>
-          <div className="skills flex gap-[7rem] flex-wrap">
+          <div className="skills flex gap-x-[40px] gap-y-[16px] justify-center lg:gap-[7rem] flex-wrap">
             {SKILLS.map((skill, index) => (
-              <ProgressBar
+              <ProgressBar  //mobile size pending
                 key={`${skill.title}-${index}`}
                 className="dark"
                 icon={skill.icon}
@@ -258,9 +255,9 @@ export default function Page() {
               />
             ))}
           </div>
-        </div> */}
+        </div>
         {/* Portfolio Section */}
-        {/* <div className="portfolio flex flex-col items-center justify-center gap-[70px]">
+        <div className="portfolio flex flex-col items-center justify-center gap-[34px] md:gap-[50px] lg:gap-[70px]">
           <div className="flex flex-col gap-[40px]">
             <SectionHeading className='portfolio__heading' title="Portfolio" />
             <Tabs
@@ -282,7 +279,7 @@ export default function Page() {
             />
           </div>
           <div className="flex w-full gap-[2rem] justify-center flex-wrap">
-            <div className="flex flex-col items-center w-full max-w-[415px]">
+            <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
               <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
               </div>
               <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
@@ -291,7 +288,7 @@ export default function Page() {
                 </Typography>
               </div>
             </div>
-            <div className="flex flex-col items-center w-full max-w-[415px]">
+            <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
               <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
               </div>
               <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
@@ -301,7 +298,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
         {/* Contact Section */}
         {/* <div className="contact flex flex-col items-center justify-center gap-[50px]">
           <SectionHeading className='contact__heading' title="Contact Me" description="Let’s Connect — Feel Free to Reach Out" />

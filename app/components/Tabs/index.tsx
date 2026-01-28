@@ -37,7 +37,7 @@ export const Tabs: React.FC<ITabsProps> = ({
                     size="md"
                     text={tab.label}
                     type="button"
-                    className={`pt-[12px] pl-[40px] pb-[12px] pr-[40px] ${activeTab === tab.id ? 'is-active' : ''}`}
+                    className={`py-[12px] px-[40px] ${activeTab === tab.id ? 'is-active' : ''}`}
                     variant='filled'
                 />
             ))}

@@ -105,12 +105,12 @@ export const ProgressBar: React.FC<IProgressBarProps> = ({
       </div>
 
       <div className="flex flex-col items-center gap-[8px]">
-        <Typography variant="h3" className="text-primary font-bold">
+        <Typography variant="h3" className="progress__bar__percentage text-primary font-bold">
           {value}%
         </Typography>
         <Typography
           variant="h5"
-          className="text-[var(--color-dark-hover)] font-bold"
+          className="progress__bar__title text-[var(--color-dark-hover)] font-bold"
         >
           {title}
         </Typography>
