@@ -24,7 +24,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
   return (
     <div className={`flex items-center gap-[14px] ${className}`}>
       {icon}
-      <Typography variant="h6" className="text-[var(--white-dark-hover)]">
+      <Typography variant="h6" className="text-[var(--white-dark-hover)] text-[16px] md:text-[18px] lg:text-[20px]">
         {text}
       </Typography>
     </div>
@@ -47,19 +47,23 @@ export default function Page() {
       className="w-[64px] md:w-[72px] lg:w-[80px]"
     />
   }
-  const NavLink = (): React.JSX.Element => {
-    return <div className="header__links hidden lg:flex items-center gap-[3.75rem]">
+  const NavLink = ({
+    isShow = false,
+  }: {
+    isShow?: boolean;
+  }): React.JSX.Element => {
+    return <div className={`header__links ${isShow ? "flex" : "hidden"} lg:flex items-center gap-[24px] md:gap-[40px] lg:gap-[60px] flex-wrap justify-center items-center`}>
       {NAV_ITEMS.map((item) => (
         <Typography
           key={item}
           variant="h6"
           as="button"
           onClick={() => setActive(item)}
-          className={
-            active === item
-              ? "text-[var(--orange-normal)] font-semibold"
-              : "text-[var(--white-dark-hover)] hover:text-white cursor-pointer"
-          }
+          className={`text-[16px] md:text-[18px] lg:text-[20px] ${active === item
+            ? "text-[var(--orange-normal)] font-semibold"
+            : "text-[var(--white-dark-hover)] hover:text-white cursor-pointer"
+            }`}
+
         >
           {item}
         </Typography>
@@ -300,10 +304,10 @@ export default function Page() {
           </div>
         </div>
         {/* Contact Section */}
-        {/* <div className="contact flex flex-col items-center justify-center gap-[50px]">
+        <div className="contact flex flex-col items-center justify-center gap-[50px]">
           <SectionHeading className='contact__heading' title="Contact Me" description="Let’s Connect — Feel Free to Reach Out" />
           <div className="flex flex-col w-full max-w-[1012px] gap-[30px]">
-            <div className="flex w-full gap-[30px]">
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full">
               <Input
                 className=""
                 id="name_id"
@@ -317,7 +321,7 @@ export default function Page() {
                 variant="outlined"
               />
             </div>
-            <div className="flex w-full gap-[30px]">
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full">
               <Input
                 className=""
                 id="phone_number_id"
@@ -345,7 +349,7 @@ export default function Page() {
                 variant="outlined"
               />
             </div>
-            <div className="flex w-full gap-[30px] items-start">
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full items-start">
               <Input
                 className=""
                 id="phone_number_id"
@@ -361,7 +365,7 @@ export default function Page() {
                 variant="outlined"
               />
             </div>
-            <div className="flex justify-end w-full">
+            <div className="flex justify-center md:justify-end lg:justify-end w-full">
               <Button
                 borderRadius="corner"
                 color="white"
@@ -371,16 +375,17 @@ export default function Page() {
                 text="Send"
                 type="button"
                 variant="outlined"
+                className="px-[1.5rem] py-[0.5rem] md:px-[1.75rem] md:py-[0.625rem] lg:px-[2.5rem] lg:py-[0.75rem]"
               />
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
-      {/* <footer className="footer flex flex-col items-center gap-[50px] bg-[var(--dark-grey)] p-[80px]">
+      <footer className="footer flex flex-col items-center gap-[30px] md:gap-[40px] lg:gap-[50px] bg-[var(--dark-grey)] p-[80px]">
         <Logo />
-        <NavLink />
+        <NavLink isShow={true} />
         <SocialMediaIcons />
-        <div className="flex gap-[40px]">
+        <div className="flex flex-col items-center md:flex-row lg:flex-row  gap-[20px] md:gap-[30px] lg:gap-[40px]">
           <InfoCard
             icon={<MailSvg />}
             text="balajiaravind99@gmail.com"
@@ -390,7 +395,7 @@ export default function Page() {
             text="+91 6381127676"
           />
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 }
