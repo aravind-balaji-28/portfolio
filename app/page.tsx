@@ -8,7 +8,7 @@ import { Tabs } from "./components/Tabs";
 import { Input } from "./components/Input";
 import { Select } from "./components/Select";
 import { SectionHeading } from "./components/SectionHeading";
-import { DownloadSvg, MailSvg, PhoneSvg } from "./Icons/SVG";
+import { DownloadSvg, MailSvg, PhoneSvg, ExpandSvg } from "./Icons/SVG";
 import { NAV_ITEMS, SERVICES, SKILLS, SOCIAL_MEDIA, HIGHLIGHTS } from "./data";
 
 interface InfoCardProps {
@@ -21,6 +21,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
   text,
   className = "",
 }) => {
+
   return (
     <div className={`flex items-center gap-[14px] ${className}`}>
       {icon}
@@ -31,7 +32,9 @@ const InfoCard: React.FC<InfoCardProps> = ({
   );
 };
 export default function Page() {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState<string>("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   const RenderHirMe = (): React.JSX.Element => {
     return <Button
       borderRadius="corner"
@@ -90,33 +93,94 @@ export default function Page() {
     </div>
   }
 
-  return (
+  const MobileMenu = ({
+    isOpen,
+    onClose,
+  }: {
+    isOpen: boolean;
+    onClose: () => void;
+  }) => {
+    return (
+      <>
+        {/* Backdrop */}
+        <div
+          onClick={onClose}
+          className={`fixed inset-0 bg-black/60 z-40 transition-opacity
+        ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        />
 
+        {/* Drawer */}
+        <aside
+          className={`fixed top-0 left-0 h-full w-full
+  bg-[#0b0b0b] z-50 p-[24px]
+  transform transition-transform duration-300 ease-out
+  ${isOpen ? "translate-x-0" : "-translate-x-full"}
+`}
+        >
+          {/* Close */}
+          <button
+            onClick={onClose}
+            className="absolute top-[20px] right-[20px] text-white text-[22px]"
+          >
+            ✕
+          </button>
+          {/* Nav */}
+          <nav className="mt-[60px] flex flex-col gap-[14px]">
+            {NAV_ITEMS.map((item) => {
+              const isActive = active === item;
+              return (
+                <button
+                  key={item}
+                  onClick={() => {
+                    setActive(item);
+                    setTimeout(() => {
+                      onClose();
+                    }, 150);
+                  }}
+                  className={`
+                  text-left px-[20px] py-[10px] rounded-full
+                  text-[16px] font-medium transition
+                  ${isActive
+                      ? "bg-[var(--orange-normal)] text-[var(--white-normal)]"
+                      : "text-[var(--white-dark-hover)]"}
+                `}
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </nav>
+         
+         {/* <div className="flex mt-5">
+           <RenderHirMe/>
+         </div> */}
+        </aside>
+
+      </>
+    );
+  };
+
+  return (
     <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px] pt-[28px] md:gap-[80px] md:pt-[42px] lg:gap-[150px] lg:pt-[56px]">
       <header className="header flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
-        <button className="header__btn--expand block lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button className="header__btn--expand block lg:hidden" onClick={() => setIsMenuOpen(true)}>
+          <ExpandSvg />
         </button>
         <Logo />
         <NavLink />
         <RenderHirMe />
       </header>
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+      />
       <div className="body flex flex-col gap-[100px] px-[16px] md:gap-[120px] md:px-[40px] lg:gap-[150px] lg:px-[80px] w-full">
         {/* Profile Section pending */}
-        <div className="profile flex flex-col gap-[100px] md:gap-[130px] lg:gap-0 lg:flex-row justify-between items-center w-full">
-          <div className="profile__left flex flex-col gap-[50px] md:gap-[65px] lg:gap-[80px] w-full items-center lg:items-start">
+        <div className="profile flex flex-col gap-[100px] md:gap-[130px] xl:gap-[0]  xl:flex-row justify-between items-center w-full">
+          <div className="profile__left flex flex-col gap-[50px] md:gap-[65px] lg:gap-[80px] w-full items-center xl:items-start">
             <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[60px] w-full">
               <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
-                <div className="flex flex-col gap-[10px] items-center lg:items-start w-full">
+                <div className="flex flex-col gap-[10px] items-center xl:items-start w-full">
                   <Typography variant="h5" className="!text-[var(--white-dark-active)] text-base md:text-xl lg:text-2xl">
                     Hi I am
                   </Typography>
@@ -126,14 +190,14 @@ export default function Page() {
                 </div>
                 <Typography variant="h1"
                   className="bg-[linear-gradient(160deg,rgba(152,67,0,0)_0%,rgba(253,111,0,1)_38%,rgba(202,89,0,1)_100%)] bg-clip-text text-transparent text-[3.125rem] md:text-[3.75rem] lg:text-[4.375rem]
- font-black tracking-[0.131rem] leading-tight break-words whitespace-normal text-center lg:break-normal lg:whitespace-nowrap lg:text-left">
+ font-black tracking-[0.131rem] leading-tight break-words whitespace-normal text-center lg:break-normal lg:whitespace-nowrap xl:text-left">
                   Mern Stack Developer
                 </Typography>
-                <div className="flex gap-[1.25rem] justify-center lg:justify-start">
+                <div className="flex gap-[1.25rem] justify-center xl:justify-start">
                   <SocialMediaIcons />
                 </div>
               </div>
-              <div className="flex gap-[1.5rem] justify-center lg:justify-start">
+              <div className="flex gap-[1.5rem] justify-center xl:justify-start">
                 <RenderHirMe />
                 <Button
                   borderRadius="corner"
