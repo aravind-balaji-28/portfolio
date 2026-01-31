@@ -193,7 +193,7 @@
     @apply !p-[10px];
   }
   .select-menu-dropdown ul li {
-    @apply !py-[6px] !px-[15px] !rounded-[10px];
+    @apply !py-[6px] !px-[15px] !rounded-[6px];
   }
 
   .landing-page .header .button-comp .btn-text {
