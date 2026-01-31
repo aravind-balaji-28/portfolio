@@ -42,11 +42,14 @@ export default function Page() {
       size="lg"
       text="Hire Me"
       variant="filled"
+      onClick={() => {
+        handleNavClick("contact");
+      }}
       className="px-[1rem] py-[0.5rem] md:px-[1.75rem] md:py-[0.625rem] lg:px-[2.5rem] lg:py-[0.75rem]"
     />
   }
   const Logo = (): React.JSX.Element => {
-    return <Image src="/img/logo.svg" alt="Logo" width={80} height={100}
+    return <Image src="/img/imagelogo1-removebg-preview.png" alt="Logo" width={80} height={100}
       className="w-[64px] md:w-[72px] lg:w-[80px]"
     />
   }
@@ -56,19 +59,20 @@ export default function Page() {
     isShow?: boolean;
   }): React.JSX.Element => {
     return <div className={`header__links ${isShow ? "flex" : "hidden"} lg:flex items-center gap-[24px] md:gap-[40px] lg:gap-[60px] flex-wrap justify-center items-center`}>
-      {NAV_ITEMS.map((item) => (
+      {NAV_ITEMS.map(({ label, id }) => (
         <Typography
-          key={item}
+          key={id}
           variant="h6"
           as="button"
-          onClick={() => setActive(item)}
-          className={`text-[16px] md:text-[18px] lg:text-[20px] ${active === item
+          onClick={() => handleNavClick(id)}
+          className={`text-[16px] md:text-[18px] lg:text-[20px] ${active === id
+
             ? "text-[var(--orange-normal)] font-semibold"
             : "text-[var(--white-dark-hover)] hover:text-white cursor-pointer"
             }`}
 
         >
-          {item}
+          {label}
         </Typography>
       ))}
     </div>
@@ -83,7 +87,7 @@ export default function Page() {
           icon={icon}
           iconPosition="left"
           isIconOnly
-          onClick={onClick}
+          onClick={onClick}  
           size="md"
           type="button"
           variant="filled"
@@ -93,6 +97,26 @@ export default function Page() {
     </div>
   }
 
+  const handleNavClick = (id: string) => {
+    setActive(id);
+
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "document/UpdateResume.pdf";
+    link.download = "Aravind_Balaji_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   const MobileMenu = ({
     isOpen,
     onClose,
@@ -126,32 +150,30 @@ export default function Page() {
           </button>
           {/* Nav */}
           <nav className="mt-[60px] flex flex-col gap-[14px]">
-            {NAV_ITEMS.map((item) => {
-              const isActive = active === item;
+            {NAV_ITEMS.map(({ id, label }) => {
               return (
                 <button
-                  key={item}
+                  key={id}
                   onClick={() => {
-                    setActive(item);
-                    setTimeout(() => {
-                      onClose();
-                    }, 150);
+                    handleNavClick(id);
+                    setTimeout(onClose, 200);
+
                   }}
                   className={`
                   text-left px-[20px] py-[10px] rounded-full
                   text-[16px] font-medium transition
-                  ${isActive
+                  ${active === id
                       ? "bg-[var(--orange-normal)] text-[var(--white-normal)]"
                       : "text-[var(--white-dark-hover)]"}
                 `}
                 >
-                  {item}
+                  {label}
                 </button>
               );
             })}
           </nav>
-         
-         {/* <div className="flex mt-5">
+
+          {/* <div className="flex mt-5">
            <RenderHirMe/>
          </div> */}
         </aside>
@@ -161,8 +183,8 @@ export default function Page() {
   };
 
   return (
-    <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px] pt-[28px] md:gap-[80px] md:pt-[42px] lg:gap-[150px] lg:pt-[56px]">
-      <header className="header flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
+    <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px]  md:gap-[80px]  lg:gap-[150px] ">
+      <header className="header bg-[#121212] pt-[28px] md:pt-[42px] lg:pt-[56px] sticky top-0 z-50 flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
         <button className="header__btn--expand block lg:hidden" onClick={() => setIsMenuOpen(true)}>
           <ExpandSvg />
         </button>
@@ -176,7 +198,7 @@ export default function Page() {
       />
       <div className="body flex flex-col gap-[100px] px-[16px] md:gap-[120px] md:px-[40px] lg:gap-[150px] lg:px-[80px] w-full">
         {/* Profile Section pending */}
-        <div className="profile flex flex-col gap-[130px] md:gap-[150px] xl:gap-[0]  xl:flex-row justify-between items-center w-full">
+        <div id="home" className="profile scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[300px]  flex flex-col gap-[130px] md:gap-[150px] xl:gap-[0]  xl:flex-row justify-between items-center w-full">
           <div className="profile__left flex flex-col gap-[50px] md:gap-[65px] lg:gap-[80px] w-full items-center xl:items-start">
             <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[60px] w-full">
               <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
@@ -191,7 +213,7 @@ export default function Page() {
                 <Typography variant="h1"
                   className="bg-[linear-gradient(160deg,rgba(152,67,0,0)_0%,rgba(253,111,0,1)_38%,rgba(202,89,0,1)_100%)] bg-clip-text text-transparent text-[3.125rem] md:text-[3.75rem] lg:text-[4.375rem]
  font-black tracking-[0.131rem] leading-tight break-words whitespace-normal text-center lg:break-normal lg:whitespace-nowrap xl:text-left">
-                  Mern Stack Developer
+                  MERN Stack Developer
                 </Typography>
                 <div className="flex gap-[1.25rem] justify-center xl:justify-start">
                   <SocialMediaIcons />
@@ -203,7 +225,7 @@ export default function Page() {
                   borderRadius="corner"
                   color="white"
                   iconPosition="left"
-                  onClick={() => { }}
+                  onClick={handleDownloadResume}
                   size="lg"
                   text="Download CV"
                   type="button"
@@ -244,13 +266,13 @@ export default function Page() {
               <div className="absolute bottom-[0] w-full">
                 <Image className="w-full h-full rounded-full object-cover grayscale" src="/img/profile-img.png" alt="Logo" width={300}
                   height={200}
-                />      
+                />
               </div>
             </div>
           </div>
         </div>
         {/* Service Section */}
-        <div className="service flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
+        <div id="services" className="service scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
           <SectionHeading title="Services" description="Building secure, scalable, and high-performance web applications with modern technologies." />
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-[16px] lg:gap-[22px] lg:gap-[34px] place-items-stretch">
             {SERVICES.map((service, index) => {
@@ -281,7 +303,7 @@ export default function Page() {
           </div>
         </div>
         {/* About Me Section */}
-        <div className="about flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
+        <div id="about" className="about scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
           <SectionHeading className='about__heading' title="About Me" description="MERN stack developer with 4 years of experience building scalable, full-stack web applications." />
           <div className="about__content flex flex-col items-center lg:flex-row  gap-[34px] md:gap-[70px] lg:gap-[100px]">
             <div className="about__content__left">
@@ -302,7 +324,7 @@ export default function Page() {
                 icon={<DownloadSvg />}
                 className="max-w-max tracking-[0.03em] px-[30px] py-[12px] px-[24px] py-[10px] md:px-[28px] md:py-[11px] lg:px-[30px] lg:py-[12px]"
                 iconPosition="left"
-                onClick={() => { }}
+                onClick={handleDownloadResume}
                 size="md"
                 text="Download CV"
                 type="button"
@@ -325,7 +347,7 @@ export default function Page() {
           </div>
         </div>
         {/* Portfolio Section */}
-        <div className="portfolio flex flex-col items-center justify-center gap-[34px] md:gap-[50px] lg:gap-[70px]">
+        <div id="portfolio" className="portfolio scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[34px] md:gap-[50px] lg:gap-[70px]  ">
           <div className="flex flex-col gap-[40px]">
             <SectionHeading className='portfolio__heading' title="Portfolio" />
             <Tabs
@@ -368,7 +390,7 @@ export default function Page() {
           </div>
         </div>
         {/* Contact Section */}
-        <div className="contact flex flex-col items-center justify-center gap-[50px]">
+        <div id="contact" className="contact scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[50px]">
           <SectionHeading className='contact__heading' title="Contact Me" description="Let’s Connect — Feel Free to Reach Out" />
           <div className="flex flex-col w-full max-w-[1012px] gap-[30px]">
             <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full">
@@ -425,7 +447,7 @@ export default function Page() {
                 id="project_description_id"
                 label="Project Description"
                 multiline
-                rows={8}
+                rows={3}
                 variant="outlined"
               />
             </div>

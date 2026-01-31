@@ -188,7 +188,9 @@
   .select-menu-dropdown ul li.Mui-focusVisible {
     @apply !bg-[#1976d2]/[0.93];
   }
-
+  .select-menu-dropdown ul li:hover {
+    @apply !border-[#1976d2]/[0.93];
+  }
   .select-menu-dropdown ul {
     @apply !p-[10px];
   }

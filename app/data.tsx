@@ -1,7 +1,13 @@
 "use client";
 import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined } from '@mui/icons-material';
 
-export const NAV_ITEMS = ["Home", "Services", "About me", "Portfolio", "Contact me"];
+export const NAV_ITEMS = [
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "About me", id: "about" },
+  { label: "Portfolio", id: "portfolio" },
+  { label: "Contact me", id: "contact" },
+];
 export const SKILLS = [
   { icon: "html", title: "HTML", value: 88 },
   { icon: "css", title: "CSS", value: 63 },
@@ -49,10 +55,36 @@ export const SERVICES = [
   },
 ];
 export const SOCIAL_MEDIA = [
-  { id: "mail", icon: <Mail />, onClick: () => { } },
-  { id: "linkedin", icon: <LinkedIn />, onClick: () => { } },
-  { id: "github", icon: <GitHub />, onClick: () => { } },
-  { id: "instagram", icon: <Instagram />, onClick: () => { } },
+  {
+    id: "mail", icon: <Mail />, onClick: () => {
+      window.open(
+        "mailto:balajiaravind99@gmail.com",
+        "_blank"
+      );
+    }
+  },
+  {
+    id: "linkedin", icon: <LinkedIn />, onClick: () => {
+      window.open(
+        "https://www.linkedin.com/in/aravind-balaji99",
+        "_blank"
+      );
+    }
+  },
+  {
+    id: "github", icon: <GitHub />, onClick: () => {
+      window.open(
+        "https://www.github.com/aravind-balaji-28",
+        "_blank"
+      );
+    }
+  },
+  { id: "instagram", icon: <Instagram />, onClick: () => {
+      window.open(
+        "https://www.instagram.com/aravind_balaji__",
+        "_blank"
+      );
+  } },
 ];
 export const HIGHLIGHTS = [
   { value: "4+", label: "Experiences" },
