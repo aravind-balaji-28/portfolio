@@ -176,7 +176,7 @@ export default function Page() {
       />
       <div className="body flex flex-col gap-[100px] px-[16px] md:gap-[120px] md:px-[40px] lg:gap-[150px] lg:px-[80px] w-full">
         {/* Profile Section pending */}
-        <div className="profile flex flex-col gap-[100px] md:gap-[130px] xl:gap-[0]  xl:flex-row justify-between items-center w-full">
+        <div className="profile flex flex-col gap-[130px] md:gap-[150px] xl:gap-[0]  xl:flex-row justify-between items-center w-full">
           <div className="profile__left flex flex-col gap-[50px] md:gap-[65px] lg:gap-[80px] w-full items-center xl:items-start">
             <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[60px] w-full">
               <div className="flex flex-col gap-[16px] md:gap-[20px] lg:gap-[24px] w-full">
@@ -244,7 +244,7 @@ export default function Page() {
               <div className="absolute bottom-[0] w-full">
                 <Image className="w-full h-full rounded-full object-cover grayscale" src="/img/profile-img.png" alt="Logo" width={300}
                   height={200}
-                />
+                />      
               </div>
             </div>
           </div>

@@ -176,7 +176,7 @@
       !text-[var(--white-dark-hover)];
   }
   .select-menu-dropdown {
-    @apply rounded-lg !bg-[#ffffff0a];
+    @apply rounded-lg !bg-[#252525];
   }
   .select-menu-dropdown ul li {
     @apply !text-[var(--white-dark)] transform-gpu will-change-transform !pl-[22px] !pr-[22px];
@@ -184,8 +184,18 @@
   .select-menu-dropdown ul li.Mui-selected {
     @apply !bg-[#1976d2]/[0.93];
   }
+  .select-menu-dropdown ul li.Mui-focused,
+  .select-menu-dropdown ul li.Mui-focusVisible {
+    @apply !bg-[#1976d2]/[0.93];
+  }
 
-  /* Landing Page */
+  .select-menu-dropdown ul {
+    @apply !p-[10px];
+  }
+  .select-menu-dropdown ul li {
+    @apply !py-[6px] !px-[15px] !rounded-[10px];
+  }
+
   .landing-page .header .button-comp .btn-text {
     @apply !text-sm lg:!text-base
     !font-normal !text-base lg:!font-medium;

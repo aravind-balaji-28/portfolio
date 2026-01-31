@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MuiSelect from "@mui/material/Select";
@@ -33,39 +33,12 @@ export const Select: React.FC<SelectProps> = ({
   onChange,
 }) => {
   const labelId = `${id}-label`;
+  const [open, setOpen] = useState(false);
 
   const handleChange = (
     event: SelectChangeEvent<string | number>
   ) => {
     onChange?.(event, event.target.value);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    const currentIndex = options.findIndex(
-      (opt) => opt.value === value
-    );
-
-    if (event.key === "ArrowDown") {
-      event.preventDefault();
-      const next = options[currentIndex + 1];
-      if (next) {
-        onChange?.(
-          event as unknown as SelectChangeEvent<string | number>,
-          next.value
-        );
-      }
-    }
-
-    if (event.key === "ArrowUp") {
-      event.preventDefault();
-      const prev = options[currentIndex - 1];
-      if (prev) {
-        onChange?.(
-          event as unknown as SelectChangeEvent<string | number>,
-          prev.value
-        );
-      }
-    }
   };
 
   return (
@@ -80,19 +53,58 @@ export const Select: React.FC<SelectProps> = ({
       <MuiSelect
         labelId={labelId}
         id={id}
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
         value={value}
         label={label}
-        size="small"
+        size="small"   
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
         MenuProps={{
           PaperProps: {
             className: "select-menu-dropdown",
           },
+          MenuListProps: {
+            onKeyDown: (event: React.KeyboardEvent) => {
+              if (
+                event.key !== "ArrowDown" &&
+                event.key !== "ArrowUp"
+              )
+                return;
+
+              event.preventDefault();
+
+              const currentIndex = options.findIndex(
+                (opt) => opt.value === value
+              );
+              if (currentIndex === -1) return;
+
+              const nextIndex =
+                event.key === "ArrowDown"
+                  ? Math.min(
+                    currentIndex + 1,
+                    options.length - 1
+                  )
+                  : Math.max(currentIndex - 1, 0);
+
+              const next = options[nextIndex];
+              if (!next || next.value === value) return;
+
+              onChange?.(
+                event as unknown as SelectChangeEvent<
+                  string | number
+                >,
+                next.value
+              );
+            },
+          },
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+          <MenuItem
+            key={option.value}
+            value={option.value}
+          >
             {option.label}
           </MenuItem>
         ))}
