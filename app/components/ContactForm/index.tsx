@@ -36,16 +36,20 @@ export const ContactForm = () => {
         },
     });
     const [loading, setLoading] = useState<boolean>(false)
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-console.log(templateId ,">Testing ID")
+    // const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    // const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    // const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    const serviceId = "email_service_portfolio";
+    const templateId = "template_3atdnzs";
+    const publicKey = "OPcZa7psFiaNMvmQR";
+
     const onSubmit = (data: FormValues) => {
         setLoading(true)
         console.log("Form Data:", data);
         emailjs.send(
             serviceId as string,
-            templateId  as string,
+            templateId as string,
             {
                 name: data.name,
                 email: data.email,
