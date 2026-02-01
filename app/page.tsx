@@ -365,20 +365,20 @@ export default function Page() {
           </div>
           <div className="flex w-full gap-[2rem] justify-center flex-wrap">
             <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/kp-image.jpg')] bg-cover bg-center rounded-t-[0.625rem]">
               </div>
               <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
                 <Typography variant="body" className="text-[var(--white-normal-active)]">
-                  WonderSoft
+                  Koinpark
                 </Typography>
               </div>
             </div>
             <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/Rectangle-test.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/watten.png')] bg-cover bg-center rounded-t-[0.625rem]">
               </div>
               <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
                 <Typography variant="body" className="text-[var(--white-normal-active)]">
-                  WonderSoft
+                  Wattenswap
                 </Typography>
               </div>
             </div>
