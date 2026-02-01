@@ -63,6 +63,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^5.0.0
         version: 5.0.0(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      '@netlify/plugin-nextjs':
+        specifier: ^5.15.7
+        version: 5.15.7
       '@storybook/addon-a11y':
         specifier: ^10.1.11
         version: 10.1.11(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -1307,6 +1310,10 @@ packages:
 
   '@neoconfetti/react@1.0.0':
     resolution: {integrity: sha512-klcSooChXXOzIm+SE5IISIAn3bYzYfPjbX7D7HoqZL84oAfgREeSg5vSIaSFH+DaGzzvImTyWe1OyrJ67vik4A==}
+
+  '@netlify/plugin-nextjs@5.15.7':
+    resolution: {integrity: sha512-tSlGTwOR/dFZMrjhCxynlwc/NkOwY+bc0gurOranLtwASH5wat2WqZaPkyIdfVdNd/zNpmGxgbkH0uppg1Lsxg==}
+    engines: {node: '>=18.0.0'}
 
   '@next/env@16.0.0':
     resolution: {integrity: sha512-s5j2iFGp38QsG1LWRQaE2iUY3h1jc014/melHFfLdrsMJPqxqDQwWNwyQTcNoUSGZlCVZuM7t7JDMmSyRilsnA==}
@@ -6295,6 +6302,8 @@ snapshots:
     optional: true
 
   '@neoconfetti/react@1.0.0': {}
+
+  '@netlify/plugin-nextjs@5.15.7': {}
 
   '@next/env@16.0.0': {}
 
