@@ -274,7 +274,7 @@ export default function Page() {
         {/* Service Section */}
         <div id="services" className="service scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
           <SectionHeading title="Services" description="Building secure, scalable, and high-performance web applications with modern technologies." />
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-[16px] lg:gap-[22px] lg:gap-[34px] place-items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-[16px] lg:gap-[22px] lg:gap-[34px] place-items-stretch">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -304,7 +304,7 @@ export default function Page() {
         </div>
         {/* About Me Section */}
         <div id="about" className="about scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
-          <SectionHeading className='about__heading' title="About Me" description="MERN stack developer with 4 years of experience building scalable, full-stack web applications." />
+          <SectionHeading className='about__heading' title="About Me" description="MERN Stack Developer with 4+ years of experience building scalable, full-stack web applications." />
           <div className="about__content flex flex-col items-center lg:flex-row  gap-[34px] md:gap-[70px] lg:gap-[100px]">
             <div className="about__content__left">
               <div className="relative flex items-center justify-center bg-[var(--dark-grey)] w-[18rem] h-[26rem] md:w-[24rem] md:h-[32rem] lg:w-[30rem] lg:h-[40rem] rounded-b-[0.625rem] [border-top-left-radius:50%_35%] [border-top-right-radius:50%_35%]">
@@ -315,8 +315,8 @@ export default function Page() {
                 </div>
               </div>
             </div> <div className="about__content__right flex flex-col gap-[24px] md:[gap-32px] lg:gap-[40px] items-center lg:items-start">
-              <Typography variant="h6" className="text-[var(--white-dark-hover)] leading-[1.9] tracking-normal text-[16px] md:text-[18px] lg:text-[20px]">
-                I’m Aravind Balaji G.V, a Full Stack Developer with a passion for building comprehensive web applications. I specialize in both front-end and back-end development, creating responsive user interfaces, managing server-side logic, and working with databases to deliver seamless, efficient solutions. Previously, I worked with service-based companies, and currently, I’m focusing on developing scalable and high-performance web applications in a product-based company. My skill set includes technologies such as React, Node.js, Express, MongoDB, and more, and I’m dedicated to staying at the forefront of industry trends to continuously deliver impactful, user-centric solutions.
+              <Typography variant="h6" className="text-[var(--white-dark-hover)] !leading-[1.9] tracking-wide text-[16px] md:text-[18px] lg:text-[20px]">
+               I am a MERN Stack Developer specializing in building scalable, high-performance web applications and secure backend systems. I design efficient architectures with real-time data handling and optimized APIs. My expertise includes React.js, Next.js, Redux, and responsive UI development on the frontend, along with Node.js, Express.js, REST APIs, GraphQL, and WebSockets on the backend. I have hands-on experience with MongoDB, MySQL, PostgreSQL, and Redis for scalable data management. I have contributed to E-commerce platforms, B2B marketplaces, cryptocurrency exchanges, and DeFi applications, with a strong focus on security, performance, and clean code. I am seeking a mid-to-senior MERN Stack Developer role to deliver impactful end-to-end web solutions.
               </Typography>
               <Button
                 borderRadius="corner"

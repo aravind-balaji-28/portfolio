@@ -1,6 +1,6 @@
 "use client";
-import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined } from '@mui/icons-material';
-
+import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined, CurrencyExchange, StorefrontOutlined } from '@mui/icons-material';
+import { BootstrapSvg,  GitHubSvg, GitLabSvg, GitSvg, MaterialSvg,  MongodbSvg,  MySQLSvg, NodejsSvg, NpmSvg, PostgresSQLSvg,  ReactSvg ,RedisSvg,ReduxSvg, SassSvg} from './Icons/SVG';
 export const NAV_ITEMS = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
@@ -10,12 +10,27 @@ export const NAV_ITEMS = [
 ];
 export const SKILLS = [
   { icon: "html", title: "HTML", value: 88 },
-  { icon: "css", title: "CSS", value: 63 },
-  { icon: "javascript", title: "JavaScript", value: 75 },
-  { icon: "html", title: "HTML", value: 60 },
-  { icon: "css", title: "CSS", value: 80 },
-  { icon: "javascript", title: "JavaScript", value: 95 },
+  { icon: "css", title: "CSS", value: 85 },
+  { icon: <SassSvg/>, title: "Sass", value: 95 },
+  { icon: <MaterialSvg/>, title: "Material", value: 70 },
+  { icon: <BootstrapSvg />, title: "Bootstrap", value: 90 },
+  { icon: "javascript", title: "JavaScript", value: 75 },  
+  { icon: <ReactSvg />, title: "React", value: 80 },
+  { icon: <ReduxSvg/>, title: "Redux", value: 80 },
+  // { icon: <FigmaSvg/>, title: "Figma", value: 95 },
+  { icon: <NodejsSvg/>, title: "Nodejs", value: 95 },
+  { icon: <MongodbSvg/>, title: "MongoDb", value: 95 },
+  { icon: <MySQLSvg/>, title: "MySQL", value: 80 },
+  { icon: <PostgresSQLSvg/>, title: "PostgresSQL", value: 60 },
+  { icon: <RedisSvg/>, title: "Redis", value: 65 },
+  { icon: <NpmSvg/>, title: "Npm", value: 85 },
+  { icon: <GitSvg/>, title: "Git", value: 90 },
+  { icon: <GitHubSvg/>, title: "GitHub", value: 85 },
+  { icon: <GitLabSvg/>, title: "GitLab", value: 80 },
+   
 ];
+
+
 export const SERVICES = [
   {
     title: "Billing Software",
@@ -24,34 +39,16 @@ export const SERVICES = [
     icon: ShoppingBagOutlined,
   },
   {
-    title: "Billing Software",
+    title: "Marketplace Platform  ",
     description:
-      "Smart billing software for fast, accurate, and hassle-free invoicing.Boost efficiency, eliminate errors, and get paid faster.",
-    icon: ShoppingBagOutlined,
+      "A full-stack e-commerce marketplace connecting buyers and sellers on a single platform, featuring secure product listings, efficient order management, and a seamless checkout experience designed for scalability.",
+    icon: StorefrontOutlined,
   },
   {
-    title: "Billing Software",
+    title: "Crypto Exchange",
     description:
-      "Smart billing software for fast, accurate, and hassle-free invoicing.Boost efficiency, eliminate errors, and get paid faster.",
-    icon: ShoppingBagOutlined,
-  },
-  {
-    title: "Billing Software",
-    description:
-      "Smart billing software for fast, accurate, and hassle-free invoicing.Boost efficiency, eliminate errors, and get paid faster.",
-    icon: ShoppingBagOutlined,
-  },
-  {
-    title: "Billing Software",
-    description:
-      "Smart billing software for fast, accurate, and hassle-free invoicing.Boost efficiency, eliminate errors, and get paid faster.",
-    icon: ShoppingBagOutlined,
-  },
-  {
-    title: "Billing Software",
-    description:
-      "Smart billing software for fast, accurate, and hassle-free invoicing.Boost efficiency, eliminate errors, and get paid faster.",
-    icon: ShoppingBagOutlined,
+      "Trade cryptocurrencies instantly with high liquidity, advanced security, and a seamless user experience built for speed and trust.",
+    icon: CurrencyExchange,
   },
 ];
 export const SOCIAL_MEDIA = [
@@ -79,12 +76,14 @@ export const SOCIAL_MEDIA = [
       );
     }
   },
-  { id: "instagram", icon: <Instagram />, onClick: () => {
+  {
+    id: "instagram", icon: <Instagram />, onClick: () => {
       window.open(
         "https://www.instagram.com/aravind_balaji__",
         "_blank"
       );
-  } },
+    }
+  },
 ];
 export const HIGHLIGHTS = [
   { value: "4+", label: "Experiences" },
