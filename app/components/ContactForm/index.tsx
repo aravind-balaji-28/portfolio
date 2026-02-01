@@ -1,3 +1,5 @@
+"use client";
+
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "../Input";
 import { Button } from "../Button";
@@ -40,7 +42,6 @@ export const ContactForm = () => {
 
     const onSubmit = (data: FormValues) => {
         setLoading(true)
-
         console.log("Form Data:", data);
         emailjs.send(
             serviceId,
