@@ -10,20 +10,27 @@ import { Select } from "./components/Select";
 import { SectionHeading } from "./components/SectionHeading";
 import { DownloadSvg, MailSvg, PhoneSvg, ExpandSvg } from "./Icons/SVG";
 import { NAV_ITEMS, SERVICES, SKILLS, SOCIAL_MEDIA, HIGHLIGHTS } from "./data";
+import { ContactForm } from "./components/ContactForm";
 
 interface InfoCardProps {
   icon: React.ReactNode;
   text: string;
   className?: string;
+  isMail?: boolean
 }
 const InfoCard: React.FC<InfoCardProps> = ({
   icon,
   text,
   className = "",
+  isMail = false,
 }) => {
-
   return (
-    <div className={`flex items-center gap-[14px] ${className}`}>
+    <div className={`flex items-center gap-[14px] cursor-pointer ${className}`} onClick={() => {
+      window.open(
+        isMail ? "mailto:balajiaravind99@gmail.com" : 'tel:+916381127676',
+        "_blank"
+      );
+    }}>
       {icon}
       <Typography variant="h6" className="text-[var(--white-dark-hover)] text-[16px] md:text-[18px] lg:text-[20px]">
         {text}
@@ -49,7 +56,7 @@ export default function Page() {
     />
   }
   const Logo = (): React.JSX.Element => {
-    return <Image src="/img/imagelogo1-removebg-preview.png" alt="Logo" width={80} height={100}
+    return <Image src="/img/Logo.png" alt="Logo" width={80} height={100}
       className="w-[64px] md:w-[72px] lg:w-[80px]"
     />
   }
@@ -87,7 +94,7 @@ export default function Page() {
           icon={icon}
           iconPosition="left"
           isIconOnly
-          onClick={onClick}  
+          onClick={onClick}
           size="md"
           type="button"
           variant="filled"
@@ -132,23 +139,16 @@ export default function Page() {
           className={`fixed inset-0 bg-black/60 z-40 transition-opacity
         ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         />
-
-        {/* Drawer */}
         <aside
-          className={`fixed top-0 left-0 h-full w-full
-  bg-[#0b0b0b] z-50 p-[24px]
-  transform transition-transform duration-300 ease-out
-  ${isOpen ? "translate-x-0" : "-translate-x-full"}
-`}
+          className={`fixed top-0 left-0 h-full w-full bg-[#0b0b0b] z-50 p-[24px] transform transition-transform duration-300 ease-out
+  ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
-          {/* Close */}
           <button
             onClick={onClose}
             className="absolute top-[20px] right-[20px] text-white text-[22px]"
           >
             ✕
           </button>
-          {/* Nav */}
           <nav className="mt-[60px] flex flex-col gap-[14px]">
             {NAV_ITEMS.map(({ id, label }) => {
               return (
@@ -172,12 +172,7 @@ export default function Page() {
               );
             })}
           </nav>
-
-          {/* <div className="flex mt-5">
-           <RenderHirMe/>
-         </div> */}
         </aside>
-
       </>
     );
   };
@@ -316,7 +311,7 @@ export default function Page() {
               </div>
             </div> <div className="about__content__right flex flex-col gap-[24px] md:[gap-32px] lg:gap-[40px] items-center lg:items-start">
               <Typography variant="h6" className="text-[var(--white-dark-hover)] !leading-[1.9] tracking-wide text-[16px] md:text-[18px] lg:text-[20px]">
-               I am a MERN Stack Developer specializing in building scalable, high-performance web applications and secure backend systems. I design efficient architectures with real-time data handling and optimized APIs. My expertise includes React.js, Next.js, Redux, and responsive UI development on the frontend, along with Node.js, Express.js, REST APIs, GraphQL, and WebSockets on the backend. I have hands-on experience with MongoDB, MySQL, PostgreSQL, and Redis for scalable data management. I have contributed to E-commerce platforms, B2B marketplaces, cryptocurrency exchanges, and DeFi applications, with a strong focus on security, performance, and clean code. I am seeking a mid-to-senior MERN Stack Developer role to deliver impactful end-to-end web solutions.
+                I am a MERN Stack Developer specializing in building scalable, high-performance web applications and secure backend systems. I design efficient architectures with real-time data handling and optimized APIs. My expertise includes React.js, Next.js, Redux, and responsive UI development on the frontend, along with Node.js, Express.js, REST APIs, GraphQL, and WebSockets on the backend. I have hands-on experience with MongoDB, MySQL, PostgreSQL, and Redis for scalable data management. I have contributed to E-commerce platforms, B2B marketplaces, cryptocurrency exchanges, and DeFi applications, with a strong focus on security, performance, and clean code. I am seeking a mid-to-senior MERN Stack Developer role to deliver impactful end-to-end web solutions.
               </Typography>
               <Button
                 borderRadius="corner"
@@ -392,79 +387,7 @@ export default function Page() {
         {/* Contact Section */}
         <div id="contact" className="contact scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[50px]">
           <SectionHeading className='contact__heading' title="Contact Me" description="Let’s Connect — Feel Free to Reach Out" />
-          <div className="flex flex-col w-full max-w-[1012px] gap-[30px]">
-            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full">
-              <Input
-                className=""
-                id="name_id"
-                label="Name"
-                variant="outlined"
-              />
-              <Input
-                className=""
-                id="email_id"
-                label="Email"
-                variant="outlined"
-              />
-            </div>
-            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full">
-              <Input
-                className=""
-                id="phone_number_id"
-                label="Phone Number"
-                variant="outlined"
-              />
-              <Select
-                label="Service of Interest"
-                onChange={() => { }}
-                options={[
-                  {
-                    label: 'Mern Stack Developer',
-                    value: 'Mern Stack Developer'
-                  },
-                  {
-                    label: 'Frontend Developer',
-                    value: 'Frontend Developer'
-                  },
-                  {
-                    label: 'Backend Developer',
-                    value: 'Backend Developer'
-                  }
-                ]}
-                value=""
-                variant="outlined"
-              />
-            </div>
-            <div className="flex flex-col md:flex-row lg:flex-row gap-[30px] w-full items-start">
-              <Input
-                className=""
-                id="phone_number_id"
-                label="Phone Number"
-                variant="outlined"
-              />
-              <Input
-                className=""
-                id="project_description_id"
-                label="Project Description"
-                multiline
-                rows={3}
-                variant="outlined"
-              />
-            </div>
-            <div className="flex justify-center md:justify-end lg:justify-end w-full">
-              <Button
-                borderRadius="corner"
-                color="white"
-                iconPosition="left"
-                onClick={() => { }}
-                size="lg"
-                text="Send"
-                type="button"
-                variant="outlined"
-                className="px-[1.5rem] py-[0.5rem] md:px-[1.75rem] md:py-[0.625rem] lg:px-[2.5rem] lg:py-[0.75rem]"
-              />
-            </div>
-          </div>
+          <ContactForm />
         </div>
       </div>
       <footer className="footer flex flex-col items-center gap-[30px] md:gap-[40px] lg:gap-[50px] bg-[var(--dark-grey)] p-[80px]">
@@ -475,6 +398,7 @@ export default function Page() {
           <InfoCard
             icon={<MailSvg />}
             text="balajiaravind99@gmail.com"
+            isMail={true}
           />
           <InfoCard
             icon={<PhoneSvg />}

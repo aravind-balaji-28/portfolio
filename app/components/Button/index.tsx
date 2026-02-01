@@ -1,4 +1,5 @@
 "use client"
+
 import React from "react";
 import { Typography } from "../Typography";
 import clsx from "clsx";
@@ -149,6 +150,7 @@ export const Button: React.FC<IButtonProps> = ({
   return (
     <>
       <button
+        suppressHydrationWarning
         type={type}
         className={mergeClass(clsx(
           baseClass,

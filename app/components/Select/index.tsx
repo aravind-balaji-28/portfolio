@@ -4,6 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MuiSelect from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import type { SelectChangeEvent } from "@mui/material/Select";
+import FormHelperText from "@mui/material/FormHelperText";
+import { Typography } from "../Typography";
 
 interface SelectOption {
   label: string;
@@ -17,6 +19,8 @@ interface SelectProps {
   options: SelectOption[];
   variant?: "filled" | "outlined" | "standard";
   className?: string;
+  error?: boolean;
+  helperText?: string;
   onChange?: (
     event: SelectChangeEvent<string | number>,
     value: string | number
@@ -28,9 +32,12 @@ export const Select: React.FC<SelectProps> = ({
   label = "Age",
   value,
   options,
+  error = false,
   variant = "outlined",
   className = "",
+  helperText,
   onChange,
+
 }) => {
   const labelId = `${id}-label`;
   const [open, setOpen] = useState(false);
@@ -42,73 +49,80 @@ export const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <FormControl
-      fullWidth
-      variant={variant}
-      size="small"
-      className={`select-comp w-full max-w-[30.688rem] bg-[var(--dark-grey)] ${className}`}
-    >
-      <InputLabel id={labelId}>{label}</InputLabel>
-
-      <MuiSelect
-        labelId={labelId}
-        id={id}
-        open={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-        value={value}
-        label={label}
-        size="small"   
-        onChange={handleChange}
-        MenuProps={{
-          PaperProps: {
-            className: "select-menu-dropdown",
-          },
-          MenuListProps: {
-            onKeyDown: (event: React.KeyboardEvent) => {
-              if (
-                event.key !== "ArrowDown" &&
-                event.key !== "ArrowUp"
-              )
-                return;
-
-              event.preventDefault();
-
-              const currentIndex = options.findIndex(
-                (opt) => opt.value === value
-              );
-              if (currentIndex === -1) return;
-
-              const nextIndex =
-                event.key === "ArrowDown"
-                  ? Math.min(
-                    currentIndex + 1,
-                    options.length - 1
-                  )
-                  : Math.max(currentIndex - 1, 0);
-
-              const next = options[nextIndex];
-              if (!next || next.value === value) return;
-
-              onChange?.(
-                event as unknown as SelectChangeEvent<
-                  string | number
-                >,
-                next.value
-              );
-            },
-          },
-        }}
+    <div className="flex flex-col w-full">
+      <FormControl
+        fullWidth
+        variant={variant}
+        size="small"
+        error={error}
+        className={`select-comp w-full max-w-[30.688rem] bg-[var(--dark-grey)] ${className}`}
       >
-        {options.map((option) => (
-          <MenuItem
-            key={option.value}
-            value={option.value}
-          >
-            {option.label}
-          </MenuItem>
-        ))}
-      </MuiSelect>
-    </FormControl>
+        <InputLabel id={labelId}>{label}</InputLabel>
+
+        <MuiSelect
+          labelId={labelId}
+          id={id}
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+          value={value}
+          label={label}
+          size="small"
+          onChange={handleChange}
+          MenuProps={{
+            PaperProps: {
+              className: "select-menu-dropdown",
+            },
+            MenuListProps: {
+              onKeyDown: (event: React.KeyboardEvent) => {
+                if (
+                  event.key !== "ArrowDown" &&
+                  event.key !== "ArrowUp"
+                )
+                  return;
+
+                event.preventDefault();
+
+                const currentIndex = options.findIndex(
+                  (opt) => opt.value === value
+                );
+                if (currentIndex === -1) return;
+
+                const nextIndex =
+                  event.key === "ArrowDown"
+                    ? Math.min(
+                      currentIndex + 1,
+                      options.length - 1
+                    )
+                    : Math.max(currentIndex - 1, 0);
+
+                const next = options[nextIndex];
+                if (!next || next.value === value) return;
+
+                onChange?.(
+                  event as unknown as SelectChangeEvent<
+                    string | number
+                  >,
+                  next.value
+                );
+              },
+            },
+          }}
+        >
+          {options.map((option) => (
+            <MenuItem
+              key={option.value}
+              value={option.value}
+            >
+              {option.label}
+            </MenuItem>
+          ))}
+        </MuiSelect>
+
+      </FormControl>
+      <Typography className="text-[#d32f2f]" variant="body" >
+        {helperText ?? helperText}
+      </Typography>
+    </div>
   );
-};
+};   

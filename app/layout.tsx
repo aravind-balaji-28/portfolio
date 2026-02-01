@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { baseFont } from "./fonts/baseFont";
-import "../app/icons.css";           
-import "../app/globals.css";       
-import "../app/storybook.css";       
+import "../app/icons.css";
+import "../app/globals.css";
+import "../app/storybook.css";
 import "material-symbols/rounded.css";
+import ToasterProvider from "./components/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={baseFont.variable}>
-      <body >{children}</body>
+      <body >
+        <ToasterProvider />
+        {children}</body>
     </html>
   );
 }

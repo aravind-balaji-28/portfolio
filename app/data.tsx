@@ -17,7 +17,6 @@ export const SKILLS = [
   { icon: "javascript", title: "JavaScript", value: 75 },  
   { icon: <ReactSvg />, title: "React", value: 80 },
   { icon: <ReduxSvg/>, title: "Redux", value: 80 },
-  // { icon: <FigmaSvg/>, title: "Figma", value: 95 },
   { icon: <NodejsSvg/>, title: "Nodejs", value: 95 },
   { icon: <MongodbSvg/>, title: "MongoDb", value: 95 },
   { icon: <MySQLSvg/>, title: "MySQL", value: 80 },
