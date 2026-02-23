@@ -247,4 +247,10 @@
   .landing-page .progress-bar-comp .progress__bar__title {
     @apply !text-[20px] md:!text-[22px] lg:!text-[24px];
   }
+  .landing-page .progress-bar-comp svg {
+    @apply !w-[2.5rem] !h-[2.5rem] md:!w-[2.8rem] md:!h-[2.8rem] lg:!w-[3rem] lg:!h-[3rem];
+  }
+  .landing-page .progress-bar-comp .material-symbols-rounded {
+    @apply !text-[1.85rem] md:!text-[2.15rem] lg:!text-[2.4rem];
+  }  
 }

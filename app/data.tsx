@@ -1,6 +1,6 @@
 "use client";
 import { Instagram, LinkedIn, GitHub, Mail, ShoppingBagOutlined, CurrencyExchange, StorefrontOutlined } from '@mui/icons-material';
-import { BootstrapSvg,  GitHubSvg, GitLabSvg, GitSvg, MaterialSvg,  MongodbSvg,  MySQLSvg, NodejsSvg, NpmSvg, PostgresSQLSvg,  ReactSvg ,RedisSvg,ReduxSvg, SassSvg} from './Icons/SVG';
+import { BootstrapSvg,  GitHubSvg, GitLabSvg, GitSvg, MaterialSvg,  MongodbSvg,  MySQLSvg, NextSvg, NodejsSvg, NpmSvg, PostgresSQLSvg,  ReactSvg ,RedisSvg,ReduxSvg, SassSvg} from './Icons/SVG';
 export const NAV_ITEMS = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
@@ -9,20 +9,21 @@ export const NAV_ITEMS = [
   { label: "Contact me", id: "contact" },
 ];
 export const SKILLS = [
+  { icon: <ReactSvg />, title: "React", value: 80 },
+  { icon: <ReduxSvg/>, title: "Redux", value: 80 },
+  { icon: <NextSvg/>, title: "Next.js", value: 80 },
+  { icon: <NodejsSvg/>, title: "Nodejs", value: 95 },
+  { icon: <MongodbSvg/>, title: "MongoDb", value: 95 },
+  { icon: <MySQLSvg/>, title: "MySQL", value: 80 },
+  { icon: <PostgresSQLSvg/>, title: "PostgresSQL", value: 60 },
+  { icon: <RedisSvg/>, title: "Redis", value: 65 },
   { icon: "html", title: "HTML", value: 88 },
   { icon: "css", title: "CSS", value: 85 },
   { icon: <SassSvg/>, title: "Sass", value: 95 },
   { icon: <MaterialSvg/>, title: "Material", value: 70 },
   { icon: <BootstrapSvg />, title: "Bootstrap", value: 90 },
   { icon: "javascript", title: "JavaScript", value: 75 },  
-  { icon: <ReactSvg />, title: "React", value: 80 },
-  { icon: <ReduxSvg/>, title: "Redux", value: 80 },
-  { icon: <NodejsSvg/>, title: "Nodejs", value: 95 },
-  { icon: <MongodbSvg/>, title: "MongoDb", value: 95 },
-  { icon: <MySQLSvg/>, title: "MySQL", value: 80 },
-  { icon: <PostgresSQLSvg/>, title: "PostgresSQL", value: 60 },
-  { icon: <RedisSvg/>, title: "Redis", value: 65 },
-  { icon: <NpmSvg/>, title: "Npm", value: 85 },
+  { icon: <NpmSvg/>, title: "NPM", value: 85 },
   { icon: <GitSvg/>, title: "Git", value: 90 },
   { icon: <GitHubSvg/>, title: "GitHub", value: 85 },
   { icon: <GitLabSvg/>, title: "GitLab", value: 80 },

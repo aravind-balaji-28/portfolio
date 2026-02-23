@@ -329,7 +329,13 @@ export default function Page() {
             <div>
             </div>
           </div>
-          <div className="skills flex gap-x-[40px] gap-y-[16px] justify-center lg:gap-[7rem] flex-wrap">
+
+        </div>
+
+        {/* Skills Section */}
+        <div id="skills" className="scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[70px] md:gap-[75px] lg:gap-[80px]">
+          <SectionHeading className='skills__heading' title="Skills" />
+          <div className="skills grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  justify-items-center gap-[3rem] md:gap-[5rem] lg:gap-[7rem]">
             {SKILLS.map((skill, index) => (
               <ProgressBar  //mobile size pending
                 key={`${skill.title}-${index}`}
@@ -337,6 +343,7 @@ export default function Page() {
                 icon={skill.icon}
                 title={skill.title}
                 value={skill.value}
+                isIconTitle={true}
               />
             ))}
           </div>
@@ -374,11 +381,20 @@ export default function Page() {
               </div>
             </div>
             <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/watten.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/watten-image.jpg')] bg-cover bg-center rounded-t-[0.625rem]">
               </div>
               <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
                 <Typography variant="body" className="text-[var(--white-normal-active)]">
                   Wattenswap
+                </Typography>
+              </div>
+            </div>
+             <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
+              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/pepagora.png')] bg-cover bg-center rounded-t-[0.625rem]">
+              </div>
+              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
+                <Typography variant="body" className="text-[var(--white-normal-active)]">
+                  Pepagora
                 </Typography>
               </div>
             </div>

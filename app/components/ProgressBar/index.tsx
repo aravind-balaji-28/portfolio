@@ -9,6 +9,7 @@ interface IProgressBarProps {
   icon?: string | React.ReactNode | React.ComponentType;
   value: number;
   title: string;
+  isIconTitle?: boolean
 }
 
 const RADIUS = 50;
@@ -53,61 +54,67 @@ export const ProgressBar: React.FC<IProgressBarProps> = ({
   icon = "javascript",
   value = 75,
   title = "",
+  isIconTitle = false
 }) => {
   const progressOffset =
     CIRCUMFERENCE - (CIRCUMFERENCE * value) / 100;
 
   return (
     <div className="progress-bar-comp flex flex-col items-center gap-[24px]">
-      <div
-        className={clsx(
-          "relative flex items-center justify-center w-[120px] h-[120px]",
-          className
-        )}
-      >
-        {/* SVG Ring */}
-        <svg
-          width="130"
-          height="130"
-          viewBox="0 0 120 120"
-          className="absolute"
-        >
-          {/* background ring */}
-          <circle
-            cx="60"
-            cy="60"
-            r={RADIUS}
-            fill="none"
-            stroke="rgba(217,217,217,0.2)"
-            strokeWidth={STROKE}
-          />
-
-          {/* progress ring */}
-          <circle
-            cx="60"
-            cy="60"
-            r={RADIUS}
-            fill="none"
-            stroke="#FD6F00"
-            strokeWidth={STROKE}
-            strokeLinecap="round"
-            strokeDasharray={CIRCUMFERENCE}
-            strokeDashoffset={progressOffset}
-            transform="rotate(-90 60 60)"
-          />
-        </svg>
-
-        {/* inner circle */}
-        <div className="absolute w-[95px] h-[95px] rounded-full bg-black" />
-
-        {/* icon */}
+      {isIconTitle ?
         <IconRenderer icon={icon} />
-      </div>
+        : <div
+          className={clsx(
+            "relative flex items-center justify-center w-[120px] h-[120px]",
+            className
+          )}
+        >
+          {/* SVG Ring */}
+          <svg
+            width="130"
+            height="130"
+            viewBox="0 0 120 120"
+            className="absolute"
+          >
+            {/* background ring */}
+            <circle
+              cx="60"
+              cy="60"
+              r={RADIUS}
+              fill="none"
+              stroke="rgba(217,217,217,0.2)"
+              strokeWidth={STROKE}
+            />
+
+            {/* progress ring */}
+            <circle
+              cx="60"
+              cy="60"
+              r={RADIUS}
+              fill="none"
+              stroke="#FD6F00"
+              strokeWidth={STROKE}
+              strokeLinecap="round"
+              strokeDasharray={CIRCUMFERENCE}
+              strokeDashoffset={progressOffset}
+              transform="rotate(-90 60 60)"
+            />
+          </svg>
+
+          {/* inner circle */}
+          <div className="absolute w-[95px] h-[95px] rounded-full bg-black" />
+
+          {/* icon */}
+          <IconRenderer icon={icon} />
+        </div>}
+
 
       <div className="flex flex-col items-center gap-[8px]">
-        <Typography variant="h3" className="progress__bar__percentage text-primary font-bold">
-          {value}%
-        </Typography>
+
+        {!isIconTitle &&
+          <Typography variant="h3" className="progress__bar__percentage text-primary font-bold">
+            {value}%
+          </Typography>}
         <Typography
           variant="h5"
           className="progress__bar__title text-[var(--color-dark-hover)] font-bold"
