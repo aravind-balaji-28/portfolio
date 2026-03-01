@@ -372,29 +372,6 @@ export default function Page() {
               ]}
             />
           </div>
-          {/* <div className="flex w-full gap-[2rem] justify-center flex-wrap">
-            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
-              <img
-              src="/img/p1.png"
-              alt="Wateenswap"
-              className="w-full h-full object-cover"
-            />
-            </div>
-            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
-              <img
-                src="/img/kp.png"
-                alt="koinpark"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
-              <img
-              src="/img/wat.png"
-              alt="Wateenswap"
-              className="w-full h-full object-cover"
-            />
-            </div>
-          </div> */}
           <Portfolio/>
         </div>
         {/* Contact Section */}
