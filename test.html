@@ -1,107 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dark Themed Form</title>
-<style>
-  /* Reset */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    background-color: #121212;
-    font-family: Arial, sans-serif;
-    color: #eee;
-  }
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-  }
-  form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 30px;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 6px;
-    color: #eee;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    font-family: inherit;
-  }
-  input[type="text"]::placeholder,
-  input[type="email"]::placeholder,
-  input[type="tel"]::placeholder,
-  select::placeholder,
-  textarea::placeholder {
-    color: #888;
-  }
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="tel"]:focus,
-  select:focus,
-  textarea:focus {
-    outline: none;
-    border-color: #6a9fff;
-    background-color: #2a2a2a;
-  }
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image:
-      linear-gradient(45deg, transparent 50%, #888 50%),
-      linear-gradient(135deg, #888 50%, transparent 50%),
-      linear-gradient(to right, #333, #333);
-    background-position:
-      calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 25px) 0.5em;
-    background-size: 5px 5px, 5px 5px, 1px 1.5em;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-  /* Make the timeline and project details fields appear full width on smaller screens */
-  @media (max-width: 600px) {
-    form {
-      grid-template-columns: 1fr;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-  }
-</style>
+
+    .card {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: aliceblue;
+      padding: 15px;
+      gap: 1rem;
+      flex-direction: column;
+      max-width: 450px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      left: -15px;
+      right: -15px;
+      top: -15px;
+      bottom: -15px;
+      background: darkblue;
+      z-index: -1;
+      opacity: 0.3;
+      border-radius: 10px;
+      filter: blur(25px);
+      animation: glowPulse 2s infinite ease-in-out;
+    }
+
+    .card__title {
+      margin: 0
+    }
+
+    .card__content {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .card__text {
+      font-size: 20px;
+    }
+
+    .card__icon {
+      font-size: 20px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      padding: 6px 5px 6px 5px;
+    }
+
+    .card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px
+    }
+
+    @keyframes glowPulse {
+      0% {
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 0.2;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
-    <form>
-      <input type="text" name="name" placeholder="Name" autocomplete="name" />
-      <input type="email" name="email" placeholder="Email" autocomplete="email" />
-      
-      <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" />
-      <select name="service" aria-label="Service Of Interest">
-        <option value="" disabled selected>Service Of Interest</option>
-        <option value="web-design">Website Design</option>
-        <option value="app-mobile">App Mobile Design</option>
-        <option value="app-desktop">App Desktop</option>
-        <option value="braiding">Braiding</option>
-      </select>
-      
-      <input type="text" name="timeline" placeholder="Timeline" />
-      <textarea name="project-details" placeholder="Project Details..."></textarea>
-    </form>
+    <div class="card">
+      <div class="card__header">
+        <h2 class="card__title">
+          Profile Info
+        </h2>
+      </div>
+      <div class="card__body">
+        <div class="card__content">
+          <div class="card__icon">AB </div>
+          <div class="card__text"> MERN stack </div>
+        </div>
+        <div class="card__description">I develop scalable and user-friendly web applications using React.js and Node.js.
+          I handle frontend and backend development, optimize databases, and ensure application security and
+          performance.</div>
+        <div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
+
 </html>

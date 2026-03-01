@@ -11,6 +11,7 @@ import { SectionHeading } from "./components/SectionHeading";
 import { DownloadSvg, MailSvg, PhoneSvg, ExpandSvg } from "./Icons/SVG";
 import { NAV_ITEMS, SERVICES, SKILLS, SOCIAL_MEDIA, HIGHLIGHTS } from "./data";
 import { ContactForm } from "./components/ContactForm";
+import Portfolio from "./components/Portfolio";
 
 interface InfoCardProps {
   icon: React.ReactNode;
@@ -18,6 +19,7 @@ interface InfoCardProps {
   className?: string;
   isMail?: boolean
 }
+
 const InfoCard: React.FC<InfoCardProps> = ({
   icon,
   text,
@@ -370,35 +372,30 @@ export default function Page() {
               ]}
             />
           </div>
-          <div className="flex w-full gap-[2rem] justify-center flex-wrap">
-            <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/kp-image.jpg')] bg-cover bg-center rounded-t-[0.625rem]">
-              </div>
-              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
-                <Typography variant="body" className="text-[var(--white-normal-active)]">
-                  Koinpark
-                </Typography>
-              </div>
+          {/* <div className="flex w-full gap-[2rem] justify-center flex-wrap">
+            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
+              <img
+              src="/img/p1.png"
+              alt="Wateenswap"
+              className="w-full h-full object-cover"
+            />
             </div>
-            <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/watten-image.jpg')] bg-cover bg-center rounded-t-[0.625rem]">
-              </div>
-              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
-                <Typography variant="body" className="text-[var(--white-normal-active)]">
-                  Wattenswap
-                </Typography>
-              </div>
+            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
+              <img
+                src="/img/kp.png"
+                alt="koinpark"
+                className="w-full h-full object-cover"
+              />
             </div>
-             <div className="flex flex-col items-center w-full max-w-[284px] md:max-w-[330px] lg:max-w-[415px]">
-              <div className="w-full min-h-[300px] md:min-h-[380px] lg:min-h-[415px]  bg-[url('/img/pepagora.png')] bg-cover bg-center rounded-t-[0.625rem]">
-              </div>
-              <div className="flex bg-[#ffffff14] p-[16px] rounded-b-[0.625rem] w-full">
-                <Typography variant="body" className="text-[var(--white-normal-active)]">
-                  Pepagora
-                </Typography>
-              </div>
+            <div className="block h-auto max-w-full rounded-[6px] overflow-hidden">
+              <img
+              src="/img/wat.png"
+              alt="Wateenswap"
+              className="w-full h-full object-cover"
+            />
             </div>
-          </div>
+          </div> */}
+          <Portfolio/>
         </div>
         {/* Contact Section */}
         <div id="contact" className="contact scroll-mt-[56px] md:scroll-mt-[72px] lg:scroll-mt-[120px] flex flex-col items-center justify-center gap-[50px]">
