@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons";
 
 export default function Portfolio() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -61,20 +63,19 @@ export default function Portfolio() {
                             </div>
 
                             <button
-                                onClick={() =>
-                                    setActiveIndex(isActive ? null : index)
-                                }
-                                className={`absolute bottom-5 left-5 w-[50px] h-[50px]
-                rounded-full flex items-center justify-center
-                text-white text-2xl font-bold
-                transition-all duration-500 z-20 shadow-lg 
-                ${isActive
-                                        ? "bg-[#ff006e] rotate-45 shadow-pink-500/40"
+                                onClick={() => setActiveIndex(isActive ? null : index)}
+                                className={`absolute -bottom-6 -left-6 w-[60px] h-[60px] rounded-full flex items-center justify-center text-white text-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 shadow-xl backdrop-blur-md border border-white/10 ${isActive
+                                        ? "bg-[#ff006e] shadow-pink-500/40"
                                         : "bg-[#3a86ff] shadow-blue-500/40"
-                                    }
-                `}
+                                    } hover:scale-110 active:scale-95`}
                             >
-                                +
+                                <span
+                                    className={`transition-transform duration-500 
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    ${isActive ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}
+                                >
+                                    <FontAwesomeIcon className="rotate-180" size="xs" icon={isActive ? faUpRightAndDownLeftFromCenter : faDownLeftAndUpRightToCenter} />
+                                </span>
                             </button>
                         </div>
                     );
