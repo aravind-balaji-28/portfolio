@@ -24,7 +24,7 @@ export default function Portfolio() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0f1117] flex items-center justify-center p-8 w-full">
+        <div className="min-h-screen flex items-center justify-center p-8 w-full">
             <div className="flex flex-wrap gap-10 justify-center w-full">
                 {cards.map((card, index) => {
                     const isActive = activeIndex === index;
