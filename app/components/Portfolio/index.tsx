@@ -7,17 +7,17 @@ export default function Portfolio() {
 
     const cards = [
         {
-            img: "/img/p1.png",
+            img: "/img/pepagora.png",
             title: "Pepagora",
             desc: "Discover Pepagora, the trusted AI-powered B2B marketplace. Connect with verified suppliers, buyers & partners worldwide. Grow your business with confidence.",
         },
         {
-            img: "/img/kp.png",
+            img: "/img/koinpark.png",
             title: "Koinpark",
             desc: "Koinpark is the best cryptocurrency exchange in India. Trade 250+ cryptocurrencies with INR on our secure crypto trading app packed with top features.",
         },
         {
-            img: "/img/wat.png",
+            img: "/img/wateenswap.png",
             title: "Waateensap",
             desc: "WateenSwap is a leading decentralized exchange (AMM) on Binance Smart Chain, enabling users to swap BEP-20 tokens with high trading volumes.",
         },
