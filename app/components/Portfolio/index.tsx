@@ -31,7 +31,8 @@ export default function Portfolio() {
 
                     return (
                         <div key={index}
-                            className="relative w-full max-w-[429px] aspect-[429/271] rounded-[10px] overflow-hidden shadow-2xl group">
+                        className="relative isolate w-full max-w-[429px] aspect-[429/271] rounded-[10px] overflow-hidden shadow-2xl shadow-black/40 group"
+                            >
                             <div className="absolute inset-0 overflow-hidden">
                                 <img src={card.img}
                                     alt={card.title}
@@ -54,9 +55,9 @@ export default function Portfolio() {
 
                             <button
                                 onClick={() => setActiveIndex(isActive ? null : index)}
-                                className={`absolute -bottom-4 -left-4 w-[40px] h-[40px] md:-bottom-5 md:-left-5 md:w-[50px] md:h-[50px] lg:-bottom-6 lg:-left-6 lg:w-[60px] lg:h-[60px] rounded-full flex items-center justify-center text-white text-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 shadow-xl backdrop-blur-md border border-white/10 ${isActive
-                                    ? "bg-[#ff006e] shadow-pink-500/40"
-                                    : "bg-[#3a86ff] shadow-blue-500/40"
+                                className={`absolute cursor-pointer -bottom-4 -left-4 w-[40px] h-[40px] md:-bottom-5 md:-left-5 md:w-[50px] md:h-[50px] lg:-bottom-6 lg:-left-6 lg:w-[60px] lg:h-[60px] rounded-full flex items-center justify-center text-white text-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 shadow-xl backdrop-blur-md border border-white/10 ${isActive
+                                    ? "bg-[var(--color-primary)] shadow-pink-500/40"
+                                    : "bg-[var(--grey-dark)]  shadow-blue-500/40"
                                     } hover:scale-110 active:scale-95`}>
                                 <span className={`text-[12px] mb-[13px] ml-[13px] md:text-[14px] md:mb-[16px] md:ml-[16px]  lg:text-[18px] lg:mb-[18px] lg:ml-[18px]transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}>
                                     <FontAwesomeIcon className="rotate-180" size="xs" icon={isActive ? faUpRightAndDownLeftFromCenter : faDownLeftAndUpRightToCenter} />
