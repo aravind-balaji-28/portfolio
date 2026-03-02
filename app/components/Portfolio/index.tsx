@@ -54,11 +54,11 @@ export default function Portfolio() {
 
                             <button
                                 onClick={() => setActiveIndex(isActive ? null : index)}
-                                className={`absolute -bottom-6 -left-6 w-[60px] h-[60px] rounded-full flex items-center justify-center text-white text-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 shadow-xl backdrop-blur-md border border-white/10 ${isActive
+                                className={`absolute -bottom-4 -left-4 w-[40px] h-[40px] md:-bottom-5 md:-left-5 md:w-[50px] md:h-[50px] lg:-bottom-6 lg:-left-6 lg:w-[60px] lg:h-[60px] rounded-full flex items-center justify-center text-white text-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 shadow-xl backdrop-blur-md border border-white/10 ${isActive
                                     ? "bg-[#ff006e] shadow-pink-500/40"
                                     : "bg-[#3a86ff] shadow-blue-500/40"
                                     } hover:scale-110 active:scale-95`}>
-                                <span className={`mb-[18px] ml-[20px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}>
+                                <span className={`text-[12px] mb-[13px] ml-[13px] md:text-[14px] md:mb-[16px] md:ml-[16px]  lg:text-[18px] lg:mb-[18px] lg:ml-[18px]transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}>
                                     <FontAwesomeIcon className="rotate-180" size="xs" icon={isActive ? faUpRightAndDownLeftFromCenter : faDownLeftAndUpRightToCenter} />
                                 </span>
                             </button>
