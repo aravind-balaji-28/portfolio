@@ -24,22 +24,23 @@ export default function Portfolio() {
     ];
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-8 w-full">
+        <div className="flex items-center justify-center p-8 w-full">
             <div className="flex flex-wrap gap-10 justify-center w-full">
                 {cards.map((card, index) => {
                     const isActive = activeIndex === index;
 
                     return (
                         <div key={index}
-                        className="relative isolate w-full max-w-[429px] aspect-[429/271] rounded-[10px] overflow-hidden shadow-2xl shadow-black/40 group"
-                            >
-                            <div className="absolute inset-0 overflow-hidden">
-                                <img src={card.img}
-                                    alt={card.title}
-                                    className="absolute inset-0 w-full h-full object-cover block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                            className="relative isolate w-full max-w-[429px] aspect-[429/271] rounded-[10px] overflow-hidden shadow-2xl shadow-black/40 group after:absolute after:inset-0
+  after:bg-gradient-to-t after:from-black/80 after:to-transparent
+  after:pointer-events-none
+  after:z-10"
+                        >
+                            <div className="w-[429px] h-[271px] overflow-hidden">
+                                <img src={card.img} alt={card.title}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
                             <div className={`absolute inset-0 p-6 flex flex-col justify-center text-white bg-black/95 transition-[clip-path] duration-700 ease-in-out ${isActive
                                 ? "[clip-path:circle(150%_at_20%_85%)]"
