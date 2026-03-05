@@ -117,7 +117,7 @@ export default function Page() {
       });
     }
   };
-
+console.log('console.log - rebase check')
   const handleDownloadResume = () => {
     const link = document.createElement("a");
     link.href = "document/Resume_Aravind.pdf";
