@@ -120,7 +120,7 @@ export default function Page() {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "document/UpdateResume.pdf";
+    link.href = "document/Resume_Aravind.pdf";
     link.download = "Aravind_Balaji_Resume.pdf";
     document.body.appendChild(link);
     link.click();
