@@ -176,7 +176,7 @@ console.log('console.log - rebase check')
       </>
     );
   };
-  console.log("date",Date.now());
+  console.log("date:",new Date());
   return (
     <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px]  md:gap-[80px]  lg:gap-[150px] ">
       <header className="header bg-[#121212] pt-[28px] md:pt-[42px] lg:pt-[56px] sticky top-0 z-50 flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
