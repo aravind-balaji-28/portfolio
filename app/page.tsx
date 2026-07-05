@@ -5,8 +5,6 @@ import { Typography } from "./components/Typography";
 import { Button } from "./components/Button";
 import { ProgressBar } from "./components/ProgressBar";
 import { Tabs } from "./components/Tabs";
-import { Input } from "./components/Input";
-import { Select } from "./components/Select";
 import { SectionHeading } from "./components/SectionHeading";
 import { DownloadSvg, MailSvg, PhoneSvg, ExpandSvg } from "./Icons/SVG";
 import { NAV_ITEMS, SERVICES, SKILLS, SOCIAL_MEDIA, HIGHLIGHTS } from "./data";
@@ -178,7 +176,7 @@ console.log('console.log - rebase check')
       </>
     );
   };
-
+  console.log("date",Date.now());
   return (
     <div className="landing-page bg-[#121212] w-full flex flex-col gap-[60px]  md:gap-[80px]  lg:gap-[150px] ">
       <header className="header bg-[#121212] pt-[28px] md:pt-[42px] lg:pt-[56px] sticky top-0 z-50 flex justify-between items-center px-[16px] md:px-[40px] lg:px-[80px]">
